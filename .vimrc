@@ -316,7 +316,7 @@ set autoindent
 set smartindent
 
 " Fast
-set synmaxcol=160
+set synmaxcol=300
 set lazyredraw
 set ttyfast
 set re=1
