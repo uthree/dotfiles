@@ -17,14 +17,12 @@ sh auto-install.sh
 ```sh
 vim # Open vim
 ```
-
-4. Install vim Plugins
 ```
 :PlugInstall
 :PlugUpdate 
 ```
 
-5. Install language server (optional)
+4. Install language server (optional)
 ```
 :LspInstall
 ```
