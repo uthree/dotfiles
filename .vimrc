@@ -143,7 +143,7 @@ inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 set laststatus=2
 
 " Show Tabline
-set showtabline=4
+set showtabline=2
 
 " Vim Default Status Bar Mode View
 set noshowmode
@@ -283,7 +283,7 @@ set nowrap
 set background=dark
 set cursorline
 set list
-set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
+set listchars=tab:>\ \ \ ,trail:-,eol:¬,extends:»,precedes:«
 
 
 " SYNTAX: ghdark
