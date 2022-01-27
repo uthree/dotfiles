@@ -47,6 +47,7 @@ Plug 'junegunn/vim-plug', { 'dir': '~/.vim/plugged/vim-plug/autoload' }
 Plug 'w0ng/vim-hybrid'
 Plug 'jacoborus/tender.vim'
 Plug 'tomasr/molokai'
+Plug 'wojciechkepka/vim-github-dark'
 
 " Vim fugitive
 Plug 'tpope/vim-fugitive'
@@ -284,8 +285,8 @@ set cursorline
 set list
 set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
 
-" SYNTAX: hybrid
-colorscheme hybrid 
+" SYNTAX: ghdark
+colorscheme ghdark
 let g:hybrid_reduced_contrast = 1
 
 " " SYNTAX: molokai
