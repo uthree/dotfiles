@@ -6,6 +6,7 @@ entries="\
 	.zshrc.d \
 	.tmux.conf \
 	.config/nvim \
+	.vimrc \
 "
 
 for f in $entries; do
