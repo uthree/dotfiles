@@ -283,7 +283,7 @@ set nowrap
 set background=dark
 set cursorline
 set list
-set listchars=tab:>\ \ \ ,trail:-,eol:¬,extends:»,precedes:«
+set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
 
 
 " SYNTAX: ghdark
