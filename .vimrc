@@ -354,6 +354,7 @@ nnoremap [e      :LspPreviousError<CR>
 " Mouse & Scroll
 "---------------------------------------
 set mouse=a
+set ttymouse=sgr
 
 "---------------------------------------
 " Language configure
