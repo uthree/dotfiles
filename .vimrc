@@ -285,8 +285,12 @@ set cursorline
 set list
 set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
 
+
 " SYNTAX: ghdark
 colorscheme ghdark
+
+" SYNTAX: hybrid
+" " colorscheme hybrid 
 let g:hybrid_reduced_contrast = 1
 
 " " SYNTAX: molokai
