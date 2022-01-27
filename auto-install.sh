@@ -1,3 +1,8 @@
+# Remove old chache
+echo "\e[35;1mRemoving old chache...\e[0m"
+rm -rf ~/.dotfiles/
+echo "\e[35;1mDone!\e[0m"
+
 #!/bin/bash
 echo "\e[35;1mCloning dotfiles...\e[0m"
 git clone https://github.com/uthree/dotfiles ~/.dotfiles
