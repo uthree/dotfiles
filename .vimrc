@@ -143,7 +143,7 @@ inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 set laststatus=2
 
 " Show Tabline
-set showtabline=2
+set showtabline=4
 
 " Vim Default Status Bar Mode View
 set noshowmode
