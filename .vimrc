@@ -377,7 +377,7 @@ autocmd FileType cpp setlocal path=.,/usr/include/c++/6/
 "Rainbow Parentheses Improved
 "---------------------------------------
 let g:rainbow_conf = {
-\	'ctermfgs': ['yellow', 'cyan', 'magenta']
+\	'ctermfgs': ['magenta', 'cyan', 'yellow']
 \}
 
 "---------------------------------------
