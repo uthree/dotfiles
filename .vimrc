@@ -105,6 +105,10 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'andys8/vim-elm-syntax'
 
+" Rainbow Parentheses Improved
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
 Plug 'w0rp/ale'
 
 call plug#end()
@@ -369,6 +373,12 @@ autocmd FileType html setlocal matchpairs& matchpairs+=<:>
 
 autocmd FileType cpp setlocal path=.,/usr/include/c++/6/
 
+"---------------------------------------
+"Rainbow Parentheses Improved
+"---------------------------------------
+let g:rainbow_conf = {
+\	'ctermfgs': ['lightyellow', 'lightcyan', 'lightmagenta']
+\}
 
 "---------------------------------------
 " finalize
