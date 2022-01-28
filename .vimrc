@@ -353,6 +353,10 @@ nnoremap gd      :LspDeclaration<CR>
 nnoremap ]e      :LspNextError<CR>
 nnoremap [e      :LspPreviousError<CR>
 
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
 
 "---------------------------------------
 " Mouse & Scroll
