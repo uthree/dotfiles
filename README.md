@@ -26,3 +26,4 @@ vim # Open vim
 ```
 :LspInstall
 ```
+
