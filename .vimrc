@@ -378,11 +378,22 @@ autocmd FileType html setlocal matchpairs& matchpairs+=<:>
 autocmd FileType cpp setlocal path=.,/usr/include/c++/6/
 
 "---------------------------------------
-"Rainbow Parentheses Improved
+" Rainbow Parentheses Improved
 "---------------------------------------
 let g:rainbow_conf = {
 \	'ctermfgs': ['magenta', 'cyan', 'yellow']
 \}
+
+
+"---------------------------------------
+" Transpent Background
+"---------------------------------------
+
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none 
 
 "---------------------------------------
 " finalize
@@ -390,3 +401,4 @@ let g:rainbow_conf = {
 
 filetype plugin indent on
 filetype on
+
