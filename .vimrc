@@ -399,7 +399,7 @@ let g:rainbow_conf = {
 " Terminal Settings
 "---------------------------------------
 :tnoremap <Esc> <C-\><C-n>
-command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+command! -nargs=* terminal bo <args>
 
 "---------------------------------------
 " finalize
