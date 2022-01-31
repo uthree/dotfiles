@@ -395,6 +395,12 @@ let g:rainbow_conf = {
 "highlight Folded ctermbg=none
 "highlight EndOfBuffer ctermbg=none 
 
+"---------------------------------------
+" Terminal Settings
+"---------------------------------------
+:tnoremap <Esc> <C-\><C-n>
+command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+autocmd TermOpen * startinsert
 
 "---------------------------------------
 " finalize
