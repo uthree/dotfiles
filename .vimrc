@@ -403,4 +403,3 @@ let g:rainbow_conf = {
 filetype plugin indent on
 filetype on
 
-terminal bo
