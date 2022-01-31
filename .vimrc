@@ -395,6 +395,7 @@ highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none 
 
+
 "---------------------------------------
 " finalize
 "---------------------------------------
@@ -402,3 +403,4 @@ highlight EndOfBuffer ctermbg=none
 filetype plugin indent on
 filetype on
 
+terminal bo
