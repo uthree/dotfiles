@@ -399,7 +399,7 @@ let g:rainbow_conf = {
 " Terminal Settings
 "---------------------------------------
 :tnoremap <Esc> <C-\><C-n>
-command! T -nargs=* terminal bo <args>
+command! T terminal bo
 
 "---------------------------------------
 " finalize
