@@ -1,5 +1,10 @@
 # dotfiles
 
+## Requirements
+- Zsh
+- Vim
+- git
+
 ## Screenshot
 ![Screenshot](https://pbs.twimg.com/media/FKGaEDjacAoiywI?format=jpg&name=4096x4096)
 
