@@ -398,7 +398,7 @@ let g:rainbow_conf = {
 "---------------------------------------
 " Terminal Settings
 "---------------------------------------
-tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc> <C-\><C-n>
 command T bo terminal
 
 "---------------------------------------
