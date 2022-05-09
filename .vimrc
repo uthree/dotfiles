@@ -283,7 +283,7 @@ nnoremap <silent> [Tag]p :tabprevious<CR>
 syntax on
 set t_Co=256
 set number
-set nowrap
+set wrap
 set background=dark
 set cursorline
 set list
