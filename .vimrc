@@ -111,6 +111,9 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 Plug 'w0rp/ale'
 
+" Minimap
+Plug 'wfxr/minimap.vim'
+
 call plug#end()
 
 "---------------------------------------
@@ -220,6 +223,13 @@ let g:lightline = {
 \	}
 
 "---------------------------------------
+" Minimap
+"---------------------------------------
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+
+"---------------------------------------
 " Other Plugins
 "---------------------------------------
 
@@ -283,7 +293,7 @@ nnoremap <silent> [Tag]p :tabprevious<CR>
 syntax on
 set t_Co=256
 set number
-set nowrap
+set wrap
 set background=dark
 set cursorline
 set list
@@ -302,6 +312,33 @@ let g:hybrid_reduced_contrast = 1
 
 " " SYNTAX: tender
 " colorscheme tender
+
+"---------------------------------------
+" Python F-String
+"---------------------------------------
+
+syn match pythonEscape +{{+ contained containedin=pythonfString,pythonfDocstring
+syn match pythonEscape +}}+ contained containedin=pythonfString,pythonfDocstring
+
+syn region pythonfString matchgroup=pythonQuotes
+      \ start=+[fF]\@1<=\z(['"]\)+ end="\z1"
+      \ contains=@Spell,pythonEscape,pythonInterpolation
+syn region pythonfDocstring matchgroup=pythonQuotes
+      \ start=+[fF]\@1<=\z('''\|"""\)+ end="\z1" keepend
+      \ contains=@Spell,pythonEscape,pythonSpaceError,pythonInterpolation,pythonDoctest
+
+syn region pythonInterpolation contained
+      \ matchgroup=SpecialChar
+      \ start=+{{\@!+ end=+}}\@!+ skip=+{{+ keepend
+      \ contains=ALLBUT,pythonDecoratorName,pythonDecorator,pythonFunction,pythonDoctestValue,pythonDoctest
+
+syn match pythonStringModifier /:\(.[<^=>]\)\?[-+ ]\?#\?0\?[0-9]*[_,]\?\(\.[0-9]*\)\?[bcdeEfFgGnosxX%]\?/ contained containedin=pythonInterpolation
+syn match pythonStringModifier /![sra]/ contained containedin=pythonInterpolation
+syn match pythonStringModifier /\zs *= *\ze[}:!]/ contained containedin=pythonInterpolation
+
+hi link pythonfString String
+hi link pythonfDocstring String
+hi link pythonStringModifier PreProc
 
 "---------------------------------------
 " Basic
@@ -389,8 +426,8 @@ let g:rainbow_conf = {
 " Transpent Background
 "---------------------------------------
 
-"highlight Normal ctermbg=none
-"highlight NonText ctermbg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 "highlight LineNr ctermbg=none
 "highlight Folded ctermbg=none
 "highlight EndOfBuffer ctermbg=none 
