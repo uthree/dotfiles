@@ -36,15 +36,11 @@ if command -v cargo &> /dev/null
 then
 	echo "installing code-minimap from crates.io ..."
     	cargo install --locked code-minimap
-fi
-
-if command -v yay &> /dev/null
+elif command -v yay &> /dev/null
 then
 	echo "installing code-minimap from AUR ..."
     	yay -S code-minimap
-fi
-
-if command -v brew &> /dev/null
+elif command -v brew &> /dev/null
 then
 	echo "installing code-minimap from homebrew ..."
 	brew install code-minimap
