@@ -229,6 +229,11 @@ let g:minimap_width = 10
 let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
 
+map <C-m> <plug>MinimapToggle<CR>
+autocmd ColorScheme *
+        \ highlight minimapCursor            ctermbg=59  ctermfg=228 guibg=#5F5F5F guifg=#FFFF87 |
+        \ highlight minimapRange             ctermbg=242 ctermfg=228 guibg=#4F4F4F guifg=#FFFF87
+
 "---------------------------------------
 " Other Plugins
 "---------------------------------------
@@ -431,6 +436,7 @@ highlight NonText ctermbg=none
 "highlight LineNr ctermbg=none
 "highlight Folded ctermbg=none
 "highlight EndOfBuffer ctermbg=none 
+highlight EndOfBuffer ctermfg=black ctermbg=none
 
 "---------------------------------------
 " Terminal Settings
