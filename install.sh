@@ -18,19 +18,19 @@ for f in $entries; do
 done
 
 # install code-minimap https://github.com/wfxr/code-minimap
-if ! command -v cargo &> /dev/null
+if command -v cargo &> /dev/null
 then
 	echo "installing code-minimap from crates.io ..."
     	cargo install --locked code-minimap
 fi
 
-if ! command -v yay &> /dev/null
+if command -v yay &> /dev/null
 then
 	echo "installing code-minimap from AUR ..."
     	yay -S code-minimap
 fi
 
-if ! command -v brew &> /dev/null
+if command -v brew &> /dev/null
 then
 	echo "installing code-minimap from homebrew ..."
 	brew install code-minimap
