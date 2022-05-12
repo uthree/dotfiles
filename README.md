@@ -6,7 +6,7 @@
 - git
 
 ## Screenshot
-![Screenshot](https://pbs.twimg.com/media/FKGaEDjacAoiywI?format=jpg&name=4096x4096)
+![Screenshot](https://twitter.com/UThree271828/status/1524575005316907009/photo/1)
 
 
 ## Installation
