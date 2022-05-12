@@ -435,10 +435,6 @@ highlight NonText ctermbg=none
 "highlight Folded ctermbg=none
 "highlight EndOfBuffer ctermbg=none 
 highlight EndOfBuffer ctermfg=black ctermbg=none
-<<<<<<< HEAD
-
-=======
->>>>>>> c5674da261e5b6be43e7ac24d090982f6650a713
 
 "---------------------------------------
 " Terminal Settings
