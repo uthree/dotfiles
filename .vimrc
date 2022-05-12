@@ -225,16 +225,19 @@ let g:lightline = {
 "---------------------------------------
 " Minimap
 "---------------------------------------
-let g:minimap_width = 10
+let g:minimap_width = 24
 let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
+
+map <C-m> <plug>MinimapToggle<CR>
+
+highlight minimapCursor ctermbg=darkgray ctermfg=white
 
 "---------------------------------------
 " Other Plugins
 "---------------------------------------
 
 let g:vim_markdown_folding_disabled = 1
-
 let g:localvimrc_persistent = 1
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
@@ -432,7 +435,10 @@ highlight NonText ctermbg=none
 "highlight Folded ctermbg=none
 "highlight EndOfBuffer ctermbg=none 
 highlight EndOfBuffer ctermfg=black ctermbg=none
+<<<<<<< HEAD
 
+=======
+>>>>>>> c5674da261e5b6be43e7ac24d090982f6650a713
 
 "---------------------------------------
 " Terminal Settings
