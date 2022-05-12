@@ -111,6 +111,9 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 Plug 'w0rp/ale'
 
+" Minimap
+Plug 'wfxr/minimap.vim'
+
 call plug#end()
 
 "---------------------------------------
