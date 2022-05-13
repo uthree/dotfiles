@@ -299,7 +299,6 @@ set number
 set wrap
 set background=dark
 set cursorline
-highlight clear cursorLine
 set list
 set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
 
@@ -316,6 +315,12 @@ let g:hybrid_reduced_contrast = 1
 
 " " SYNTAX: tender
 " colorscheme tender
+
+" cursor
+set cursorline
+hi clear cursorLine
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "---------------------------------------
 " Python F-String
