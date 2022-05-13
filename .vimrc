@@ -296,11 +296,10 @@ nnoremap <silent> [Tag]p :tabprevious<CR>
 syntax on
 set t_Co=256
 set number
-set currsorLine
-hi clear CursorLine
 set wrap
 set background=dark
 set cursorline
+highlight clear cursorLine
 set list
 set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
 
