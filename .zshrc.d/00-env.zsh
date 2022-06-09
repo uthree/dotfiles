@@ -8,4 +8,4 @@ PATH="$PATH:./node_modules/.bin"
 export ZD="$HOME/.zshrc.d"
 export NV="$HOME/.config/nvim"
 export NVD="$NV/init.d"
-
+export SCREENDIR=$HOME/.screen
