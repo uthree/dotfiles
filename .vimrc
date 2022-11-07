@@ -433,12 +433,12 @@ let g:rainbow_conf = {
 " Transpent Background
 "---------------------------------------
 
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
 "highlight LineNr ctermbg=none
 "highlight Folded ctermbg=none
 "highlight EndOfBuffer ctermbg=none 
-highlight EndOfBuffer ctermfg=black ctermbg=none
+"highlight EndOfBuffer ctermfg=black ctermbg=none
 
 "---------------------------------------
 " Terminal Settings
