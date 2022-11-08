@@ -111,7 +111,7 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 
 Plug 'w0rp/ale'
 
-call plug#end()
+call plug#end()f
 
 "---------------------------------------
 " LSP
@@ -302,10 +302,10 @@ set listchars=tab:>\ ,trail:-,eol:¬,extends:»,precedes:«
 
 
 " SYNTAX: ghdark
-colorscheme ghdark
+" colorscheme ghdark
 
 " SYNTAX: hybrid
-" " colorscheme hybrid 
+colorscheme hybrid 
 let g:hybrid_reduced_contrast = 1
 
 " " SYNTAX: molokai
