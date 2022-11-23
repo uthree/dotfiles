@@ -8,3 +8,6 @@ done
 echo "\e[35;1mDone.\e[0m"
 echo
 
+if [ -e $HOME/.specific.zsh ]; then
+	source $HOME/.specific.zsh
+fi
