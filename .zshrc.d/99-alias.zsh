@@ -92,3 +92,8 @@ alias vzp="vim ~/.zshrc.d/99-zplugin.zsh"
 alias xy="xargs -P16 -n1 youtube-dl"
 
 alias background="screen -d -m"
+
+# exa
+if type "exa" > /dev/null 2>&1; then
+	alias ls="exa --icons"
+fi
