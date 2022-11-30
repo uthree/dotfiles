@@ -10,4 +10,6 @@ echo
 
 if [ -e $HOME/.specific.zsh ]; then
 	source $HOME/.specific.zsh
+else
+	echo "\e[35;1m ~/.specific.zsh is not detected. write ~/.specific.zsh if you need setting only this machine .\e[0m"
 fi
