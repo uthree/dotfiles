@@ -94,6 +94,9 @@ Plug 'simeji/winresizer'
 
 Plug 'embear/vim-localvimrc'
 
+# Nerd fonts
+Plug 'ryanoasis/vim-devicons'
+
 " LSP
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -430,15 +433,18 @@ let g:rainbow_conf = {
 
 
 "---------------------------------------
-" Transpent Background
+" Nerd Fonts
 "---------------------------------------
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set encoding=utf-8
 
-"highlight Normal ctermbg=none
-"highlight NonText ctermbg=none
-"highlight LineNr ctermbg=none
-"highlight Folded ctermbg=none
-"highlight EndOfBuffer ctermbg=none 
-"highlight EndOfBuffer ctermfg=black ctermbg=none
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
 
 "---------------------------------------
 " Terminal Settings
