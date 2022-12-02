@@ -94,7 +94,7 @@ Plug 'simeji/winresizer'
 
 Plug 'embear/vim-localvimrc'
 
-# Nerd fonts
+" Nerd fonts
 Plug 'ryanoasis/vim-devicons'
 
 " LSP
