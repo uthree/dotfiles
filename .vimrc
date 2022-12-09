@@ -113,7 +113,6 @@ Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 Plug 'w0rp/ale'
-
 call plug#end()
 
 "---------------------------------------
@@ -297,7 +296,7 @@ syntax on
 set t_Co=256
 set number
 set numberwidth=8
-set wrap
+set nowrap
 set background=dark
 set cursorline
 set list
@@ -428,7 +427,8 @@ autocmd FileType cpp setlocal path=.,/usr/include/c++/6/
 " Rainbow Parentheses Improved
 "---------------------------------------
 let g:rainbow_conf = {
-\	'ctermfgs': ['magenta', 'cyan', 'yellow']
+\	'ctermfgs': ['magenta', 'cyan', 'yellow'],
+\ 'separately': {'nerdtree': 0}
 \}
 
 
