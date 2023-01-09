@@ -95,5 +95,5 @@ alias background="screen -d -m"
 
 # exa
 if type "exa" > /dev/null 2>&1; then
-	alias ls="exa --icons"
+	alias ls="exa --icons -F"
 fi
