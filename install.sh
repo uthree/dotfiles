@@ -7,6 +7,7 @@ entries="\
 	.tmux.conf \
 	.config/nvim \
 	.config/alacritty \
+	.config/helix \
 	.vimrc \
 "
 
