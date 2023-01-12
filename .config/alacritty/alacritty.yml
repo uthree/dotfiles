@@ -42,6 +42,6 @@ colors:
 
 # Window
 window:
-  dimentions:
+  dimensions:
     columns: 80
     lines: 24
