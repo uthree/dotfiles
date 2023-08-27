@@ -1,5 +1,6 @@
 alias ":q"=exit
 alias ":e"=vim
+alias ":o"=hx
 alias reload="exec zsh"
 alias ll=la
 alias nf="neofetch"
@@ -8,7 +9,6 @@ alias clsls="clear && ls"
 alias cb="xsel --clipboard --input"
 type docker-compose > /dev/null && alias dc=docker-compose || alias dc="docker compose"
 alias downrm="docker-compose down --rmi all --volumes --remove-orphans"
-alias dog=cat
 alias less="less -r"
 alias tree="tree -C"
 alias tl="tree | less"
@@ -69,27 +69,7 @@ elif [[ -r /etc/os-release ]] && grep -q fedora /etc/os-release; then
   alias s="$sudo dnf search"
 fi
 
-alias t="tmux"
-alias ta="tmux attach"
-alias tk="tmux kill-server"
-
-alias vz="vim ~/.zshrc"
-alias ve="vim ~/.zshrc.d/00-env.zsh"
-alias va="vim ~/.zshrc.d/99-alias.zsh"
-alias vb="vim ~/.zshrc.d/99-bind.zsh"
-
-alias svim="sudoedit"
-alias vi3="vim ~/.config/i3/config"
-alias vx="vim ~/.vnc/xstartup"
-alias vX="vim ~/.Xresources"
-alias vzd="vim ~/.zshrc.d/"
-alias vn="vim ~/.config/nvim/init.vim"
-alias vp="vim ~/.config/nvim/init.d/plugins.vim"
-alias vt="vim ~/.dotfiles/*.zsh-theme && zinit update --quiet ~/.dotfiles/*.zsh-theme > /dev/null; true"
-alias vs="sudo vim /etc/apt/sources.list"
-alias vsd="sudo vim /etc/apt/sources.list.d"
-alias vzp="vim ~/.zshrc.d/99-zplugin.zsh"
-alias xy="xargs -P16 -n1 youtube-dl"
+alias t="zellij"
 
 alias background="screen -d -m"
 
