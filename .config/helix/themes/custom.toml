@@ -1,10 +1,10 @@
 "attribute" = { fg = "yellow" }
 "comment" = { fg = "light-gray", modifiers = ["italic"] }
 "constant" = { fg = "cyan" }
-"constant.numeric" = { fg = "gold" }
+"constant.numeric" = { fg = "blue" }
 "constant.builtin" = { fg = "gold" }
 "constant.character.escape" = { fg = "gold" }
-"constructor" = { fg = "blue" }
+"constructor" = { fg = "gold" }
 "function" = { fg = "purple" }
 "function.builtin" = { fg = "pruple" }
 "function.macro" = { fg = "purple" }
@@ -20,9 +20,9 @@
 "string" = { fg = "cyan" }
 "type" = { fg = "gold" }
 # "variable" = { fg = "blue" }
-"variable.builtin" = { fg = "blue" }
-"variable.parameter" = { fg = "blue" }
-"variable.other.member" = { fg = "blue" }
+"variable.builtin" = { fg = "white" }
+"variable.parameter" = { fg = "white" }
+"variable.other.member" = { fg = "white" }
 
 "markup.heading" = { fg = "red" }
 "markup.raw.inline" = { fg = "cyan" }
@@ -31,7 +31,7 @@
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 "markup.list" = { fg = "red" }
 "markup.quote" = { fg = "yellow" }
-"markup.link.url" = { fg = "cyan", modifiers = ["underlined"]}
+"markup.link.url" = { fg = "blue", modifiers = ["underlined"]}
 "markup.link.text" = { fg = "purple" }
 
 "diff.plus" = "green"
