@@ -95,6 +95,9 @@ esc = ["collapse_selection", "normal_mode"]
 # VSCode like save
 C-s = ":w"
 
+# Auto complete
+C-n = "completion"
+
 [keys.select]
 # Muscle memory
 "{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
