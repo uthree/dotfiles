@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "custom"
 [editor]
 true-color = true
 color-modes = true
