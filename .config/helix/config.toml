@@ -2,6 +2,7 @@ theme = "custom"
 [editor]
 true-color = true
 color-modes = true
+mouse = true
 
 [editor.cursor-shape]
 normal = "bar"
@@ -30,6 +31,9 @@ C-h = "select_prev_sibling"
 C-j = "shrink_selection"
 C-k = "expand_selection"
 C-l = "select_next_sibling"
+
+# VSCode like save
+C-s = ":w"
 
 # Personal preference
 o = ["open_below", "normal_mode"]
@@ -87,6 +91,9 @@ y = ["extend_to_line_bounds", "yank_main_selection_to_clipboard", "normal_mode",
 [keys.insert]
 # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
 esc = ["collapse_selection", "normal_mode"]
+
+# VSCode like save
+C-s = ":w"
 
 [keys.select]
 # Muscle memory
