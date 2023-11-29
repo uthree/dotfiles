@@ -120,8 +120,8 @@ disabled = false
 show_always = true
 
 [hostname]
-ssh_only = false
-format = '@ [$hostname](bold blue)[$ssh_symbol](bold blue) '
+ssh_only = true
+format = '@ [$hostname](bold blue)(bold blue) '
 trim_at = '.companyname.com'
 disabled = false
 
