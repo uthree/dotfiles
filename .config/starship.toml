@@ -110,3 +110,21 @@ symbol = " "
 [scala]
 symbol = " "
 
+
+# Username and hostname
+[username]
+style_user = 'blue bold'
+style_root = 'red bold'
+format = '[$user]($style) '
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+ssh_symbol = '(ssh) '
+format = '@ [$hostname](bold blue)[$ssh_symbol](bold blue) '
+trim_at = '.companyname.com'
+disabled = false
+
+[directory]
+format = 'in [$path]($style)[$read_only]($read_only_style) '
