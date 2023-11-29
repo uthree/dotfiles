@@ -121,7 +121,6 @@ show_always = true
 
 [hostname]
 ssh_only = false
-ssh_symbol = '(ssh) '
 format = '@ [$hostname](bold blue)[$ssh_symbol](bold blue) '
 trim_at = '.companyname.com'
 disabled = false
