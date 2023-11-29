@@ -8,6 +8,7 @@ entries="\
 	.config/nvim \
 	.config/alacritty \
 	.config/helix \
+	.config/starship.toml \
 	.vimrc \
 "
 
