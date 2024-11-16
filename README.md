@@ -1,2 +1,5 @@
 # dotfiles
-configuration files
+
+## Requirements
+
+## Installation
