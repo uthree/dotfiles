@@ -1,1 +1,8 @@
-Copy-Item -Path ".config" -Destination "$HOME" -Recurse -Force
+@echo off
+rem ホームディレクトリを取得
+set HOME=%USERPROFILE%
+
+rem .config フォルダをホームディレクトリにコピー
+xcopy ".config" "%HOME%\.config" /E /I /Y
+
+echo install complete!
