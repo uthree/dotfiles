@@ -2,6 +2,7 @@ alias ":q"="exit"
 alias ":e"="vim"
 alias ":o"="hx"
 alias reload="exec zsh"
+alias "$"="command"
 
 # zellij
 if type zellij &> /dev/null; then
@@ -14,3 +15,5 @@ if type "eza" > /dev/null 2>&1; then
 fi
 
 alias background="screen -d -m"
+
+
