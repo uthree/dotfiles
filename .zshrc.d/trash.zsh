@@ -4,8 +4,7 @@ if [ -d ${HOME}/.Trash ]; then
     alias cleartrash='command rm -rf ~/.Trash/*' 
 else
     # create trash directory
-    mkdir mkdir ${HOME}/.Trash
-	echo
+    mkdir ${HOME}/.Trash
     echo "\e[35;1mCreated ${HOME}/.Trash directory automatically. \e[0m"
 fi
 
