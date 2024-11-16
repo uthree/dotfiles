@@ -4,8 +4,7 @@ DOTPATH=~/.dotfiles
 entries="\
 	.zshrc \
 	.zshrc.d \
-	.tmux.conf \
-	.config
+	.config \
 	.vimrc \
 "
 
@@ -20,7 +19,9 @@ for f in $entries; do
 done
 
 # install starship
-curl -sS https://starship.rs/install.sh | sh
+if ! type starship &> /dev/null; then
+	curl -sS https://starship.rs/install.sh | sh
+end
 
 # install vim colorscheme
 if type vim &> /dev/null; then

@@ -10,6 +10,6 @@ echo "Done"
 
 # Run install script
 cd ~/.dotfiles
-./install.sh
+sh ./install.sh
 
 echo "Install complete!"
