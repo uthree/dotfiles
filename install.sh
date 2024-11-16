@@ -21,12 +21,12 @@ for f in $entries; do
 done
 
 # install starship
-if [[! type starship &> /dev/null]]; then
+if ! type starship &> /dev/null; then
 	curl -sS https://starship.rs/install.sh | sh
 end
 
 # install vim colorscheme
-if [[type vim &> /dev/null]]; then
+if type vim &> /dev/null; then
 	cd ~
 	echo "Installing vim color scheme..."
 	mkdir ~/.vim

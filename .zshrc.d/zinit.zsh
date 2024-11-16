@@ -28,7 +28,6 @@ _lazy; zinit load zdharma-continuum/history-search-multi-word
 
        zinit snippet OMZP::git
        zinit snippet OMZP::history
-       zinit snippet ~/.dotfiles/af-magic-modified.zsh-theme
 
 unalias _lazy
 
