@@ -7,6 +7,7 @@ entries="\
 	.config/alacritty \
 	.config/helix \
 	.config/starship.toml \
+	.config/zellij \
 	.vimrc \
 "
 
