@@ -16,5 +16,5 @@ if [[ -d "$TRASH_DIR" ]]; then
     if [[ "$(uname)" != "Darwin" ]]; then
         find "$TRASH_DIR" -type f -mtime +30 -exec rm -f {} \;
         find "$TRASH_DIR" -type d -mtime +30 -exec rm -rf {} \;
-    end
+    fi
 fi
