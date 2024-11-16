@@ -1,0 +1,1 @@
+Copy-Item -Path ".config" -Destination "$HOME" -Recurse -Force
