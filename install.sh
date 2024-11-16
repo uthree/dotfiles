@@ -4,7 +4,9 @@ DOTPATH=~/.dotfiles
 entries="\
 	.zshrc \
 	.zshrc.d \
-	.config \
+	.config/alacritty \
+	.config/helix \
+	.config/starship.toml \
 	.vimrc \
 "
 
