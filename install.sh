@@ -21,7 +21,7 @@ for f in $entries; do
 done
 
 # install starship
-if ! type starship &> /dev/null; then
+f ! command -v starship >/dev/null 2>&1; then
 	curl -sS https://starship.rs/install.sh | sh
 end
 
