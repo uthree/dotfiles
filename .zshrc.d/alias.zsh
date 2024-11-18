@@ -25,6 +25,12 @@ if type zoxide &> /dev/null; then
     eval "$(zoxide init zsh --cmd cd)"
 fi
 
+# fzf
 if type fzf &> /dev/null; then
     source <(fzf --zsh)
+
+    # bat integration
+    if type "bat" > /dev/null 2>&1; then
+        alias "fzf"='fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+    fi
 fi
