@@ -31,8 +31,8 @@ _lazy; zinit load zdharma-continuum/history-search-multi-word
 
 if type fzf &> /dev/null; then
     # fzf zinit integration
-    _lazy; zinit light Aloxaf/fzf-tab
-    zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+    zinit light Aloxaf/fzf-tab
+    #zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 fi
 
 unalias _lazy
