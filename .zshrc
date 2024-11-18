@@ -13,3 +13,8 @@ if [ -e $HOME/.specific.zsh ]; then
 else
 	echo "\e[35;1m ~/.specific.zsh is not detected. write ~/.specific.zsh if you need setting only this machine .\e[0m"
 fi
+
+# zoxide
+if type zoxide &> /dev/null; then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
