@@ -13,3 +13,9 @@ if [ -e $HOME/.specific.zsh ]; then
 else
 	echo "\e[35;1m ~/.specific.zsh is not detected. write ~/.specific.zsh if you need setting only this machine .\e[0m"
 fi
+
+if type fzf &> /dev/null; then
+    # fzf zinit integration
+    zinit light Aloxaf/fzf-tab
+    #zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+fi
