@@ -6,7 +6,7 @@ alias "$"="command"
 
 # zellij
 if type zellij &> /dev/null; then
-    alias tmux="zellij"
+    #alias tmux="zellij"
 fi
 
 # eza
