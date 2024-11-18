@@ -8,8 +8,8 @@ if [ -d ${HOME}/.Trash ]; then
             alias rm='trash'
         else
             echo "\e[35;1mWarning: trash command is not installed.\e[0m"
-        end
-    end
+        fi
+    fi
 else
     # create trash directory
     mkdir ${HOME}/.Trash
