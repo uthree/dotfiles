@@ -14,6 +14,7 @@ entries="\
 # generate symlinks
 echo "generating symlinks..."
 for f in $entries; do
+	echo "	$f"
 	parent_dir=$(dirname $HOME/$f)
 	if [[ ! -e $parent_dir ]]; then
 		mkdir -p $parent_dir

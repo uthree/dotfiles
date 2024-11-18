@@ -1,5 +1,5 @@
 # Remove old chache
-echo "Removing old chache...\e[0m"
+echo "Removing old chache..."
 rm -rf ~/.dotfiles/
 echo "Done"
 
