@@ -12,7 +12,9 @@ configuration files and install script
 - [zoxide](https://github.com/ajeetdsouza/zoxide): cd alternative
 - [fzf](https://github.com/junegunn/fzf): fuzzy finder
 - Trash
-    - replace `rm` command to moving `~/.Trash/` directory and remove 30-days old files automatically.
+    - replace `rm` command to moving `~/.Trash/` directory.
+    - run `clear-trash` to delete old trash files.
+    - run `clear-trash-all` to delete all trash files.
 - command aliases
 
 ## Requirements
