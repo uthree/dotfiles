@@ -31,6 +31,7 @@ if type fzf &> /dev/null; then
 
     # bat integration
     if type "bat" > /dev/null 2>&1; then
+        export FZF_DEFAULT_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
         export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
     fi
 fi
