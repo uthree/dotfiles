@@ -3,12 +3,6 @@ if [ -d ${HOME}/.Trash ]; then
     if [[ "$(uname)" != "Darwin" ]];
         alias rm='mv --backup=numbered --target-directory=${HOME}/.Trash'
         alias cleartrash='command rm -rf ~/.Trash/*'
-    else
-        if type trash &> /dev/null; then
-            alias rm='trash'
-        else
-            echo "\e[35;1mWarning: trash command is not installed.\e[0m"
-        fi
     fi
 else
     # create trash directory
