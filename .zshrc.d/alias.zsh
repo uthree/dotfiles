@@ -16,4 +16,15 @@ fi
 
 alias background="screen -d -m"
 
+# bat
+if type "bat" > /dev/null 2>&1; then
+    alias cat="bat"
+fi
 
+if type zoxide &> /dev/null; then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
+
+if type fzf &> /dev/null; then
+    source <(fzf --zsh)
+fi

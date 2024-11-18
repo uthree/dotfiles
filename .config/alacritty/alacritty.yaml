@@ -2,13 +2,13 @@
 font:
   size: 16
   normal:
-    family: 'HackGen35 Console NFJ'
+    family: 'HackGen35 Console NF'
   bold:
-    family: 'HackGen35 Console NFJ'
+    family: 'HackGen35 Console NF'
   italic:
-    family: 'HackGen35 Console NFJ'
+    family: 'HackGen35 Console NF'
   bold_italic:
-    family: 'HackGen35 Console NFJ'
+    family: 'HackGen35 Console NF'
 
 # Cursor
 cursor:

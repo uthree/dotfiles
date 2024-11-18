@@ -182,7 +182,9 @@ disabled = false
 
 [directory]
 read_only = " 󰌾"
+truncation_symbol = "…"
 format = 'in [$path]($style)[$read_only]($read_only_style) '
+truncate_to_repo = false
 
 [character]
 success_symbol = "[\\$](bold green)"
