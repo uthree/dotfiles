@@ -29,6 +29,8 @@ _lazy; zinit load zdharma-continuum/history-search-multi-word
        zinit snippet OMZP::git
        zinit snippet OMZP::history
 
+       zinit light Aloxaf/fzf-tab
+
 unalias _lazy
 
 bindkey "^R" history-search-multi-word
