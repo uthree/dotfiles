@@ -8,7 +8,7 @@ entries="\
 	.config/helix \
 	.config/starship.toml \
 	.config/zellij \
-	.config/git \
+	.config/git/ignore \
 	.vimrc \
 "
 
