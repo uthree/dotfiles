@@ -9,6 +9,7 @@ entries="\
 	.config/starship.toml \
 	.config/zellij \
 	.config/git/ignore \
+	.gemini/GEMINI.md \
 	.vimrc \
 "
 
