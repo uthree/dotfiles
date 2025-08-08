@@ -10,6 +10,7 @@ entries="\
 	.config/zellij \
 	.config/git/ignore \
 	.gemini/GEMINI.md \
+	.codex/AGENTS.md \
 	.vimrc \
 "
 
