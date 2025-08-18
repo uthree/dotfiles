@@ -1,5 +1,8 @@
 # dotfiles
-configuration files and install script
+configuration files and install script  
+
+### screenshot (iTerm2)
+![screenshot](./assets/image/iterm2_screenshot.png)
 
 ## Features
 - [zsh](https://ja.wikipedia.org/wiki/Z_Shell): shell
