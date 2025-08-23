@@ -14,6 +14,8 @@ configuration files and install script
 - [vim](https://github.com/vim/vim): text editor
 - [zoxide](https://github.com/ajeetdsouza/zoxide): cd alternative
 - [fzf](https://github.com/junegunn/fzf): fuzzy finder
+- [fcp](https://github.com/Svetlitski/fcp): cp alternative
+
 - Trash
     - replace `rm` command to moving `~/.Trash/` directory.
     - run `clear-trash` to delete old trash files.

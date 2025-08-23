@@ -32,3 +32,8 @@ if type fzf &> /dev/null; then
         export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
     fi
 fi
+
+# fcp
+if type "fcp" > /dev/null 2>&1; then
+    alias cp="fcp"
+fi
