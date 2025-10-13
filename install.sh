@@ -11,6 +11,7 @@ entries="\
 	.config/git/ignore \
 	.gemini/GEMINI.md \
 	.codex/AGENTS.md \
+	.claude/CLAUDE.md
 	.vimrc \
 "
 
