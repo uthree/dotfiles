@@ -3,6 +3,7 @@ DOTPATH=~/.dotfiles
 
 entries="\
 	.zshrc \
+	.zprofile \
 	.zshrc.d \
 	.config/alacritty \
 	.config/helix \
