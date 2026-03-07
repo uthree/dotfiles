@@ -166,6 +166,9 @@ symbol = " "
 [gradle]
 symbol = " "
 
+[gcloud]
+disabled = true
+
 # Username and hostname
 [username]
 style_user = 'blue bold'
