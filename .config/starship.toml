@@ -1,7 +1,7 @@
 # nerd fonts symbols
 
 [aws]
-symbol = "  "
+symbol = " "
 
 [buf]
 symbol = " "
@@ -132,6 +132,7 @@ Windows = "󰍲 "
 [package]
 symbol = "󰏗 "
 format ="[$symbol$version]($style) "
+disabled = true
 
 [perl]
 symbol = " "
