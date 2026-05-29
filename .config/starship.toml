@@ -160,36 +160,46 @@ disabled = true
 
 [perl]
 symbol = " "
+disabled=true
 
 [php]
 symbol = " "
+disabled=true
 
 [pijul_channel]
 symbol = " "
 
 [python]
 symbol = " "
+disabled=true
 
 [rlang]
 symbol = "󰟔 "
+disabled=true
 
 [ruby]
 symbol = " "
+disabled=true
 
 [rust]
 symbol = "󱘗 "
+disabled=true
 
 [scala]
 symbol = " "
+disabled=true
 
 [swift]
 symbol = " "
+disabled=true
 
 [zig]
 symbol = " "
+disabled=true
 
 [gradle]
 symbol = " "
+disabled=true
 
 [gcloud]
 disabled = true
