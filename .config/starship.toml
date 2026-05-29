@@ -8,30 +8,39 @@ symbol = " "
 
 [c]
 symbol = " "
+disabled = true
 
 [conda]
 symbol = " "
+disabled = true
 
 [crystal]
 symbol = " "
+disabled = true
 
 [dart]
 symbol = " "
+disabled = true
 
 [docker_context]
 symbol = " "
+disabled = true
 
 [elixir]
 symbol = " "
+disabled = true
 
 [elm]
 symbol = " "
+disabled = true
 
 [fennel]
 symbol = " "
+disabled = true
 
 [fossil_branch]
 symbol = " "
+disabled = true
 
 [git_branch]
 symbol = " "
@@ -41,48 +50,63 @@ tag_symbol = '  '
 
 [golang]
 symbol = " "
+disabled = true
 
 [guix_shell]
 symbol = " "
+disabled = true
 
 [haskell]
 symbol = " "
+disabled = true
 
 [haxe]
 symbol = " "
+disabled = true
 
 [hg_branch]
 symbol = " "
+disabled = true
 
 [java]
 symbol = " "
+disabled = true
 
 [julia]
 symbol = " "
+disabled = true
 
 [kotlin]
 symbol = " "
+disabled = true
 
 [lua]
 symbol = " "
+disabled = true
 
 [memory_usage]
 symbol = "󰍛 "
+disabled = true
 
 [meson]
 symbol = "󰔷 "
+disabled = true
 
 [nim]
 symbol = "󰆥 "
+disabled = true
 
 [nix_shell]
 symbol = " "
+disabled = true
 
 [nodejs]
 symbol = " "
+disabled = true
 
 [ocaml]
 symbol = " "
+disabled = true
 
 [os.symbols]
 Alpaquita = " "
