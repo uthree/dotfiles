@@ -6,6 +6,7 @@ configuration files and install script
 
 ## Features
 - [zsh](https://ja.wikipedia.org/wiki/Z_Shell): shell
+- [zed](https://zed.dev/): text editor
 - [helix](https://github.com/helix-editor/helix): text editor
 - [eza](https://github.com/eza-community/eza): ls alternative
 - [zellij](https://github.com/zellij-org/zellij): tmux alternative
