@@ -10,7 +10,6 @@ entries="\
 	.config/starship.toml \
 	.config/zellij \
 	.config/git/ignore \
-	.claude/CLAUDE.md
 	.vimrc \
 "
 
