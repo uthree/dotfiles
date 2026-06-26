@@ -17,10 +17,6 @@ fi
 # screen
 alias background="screen -d -m"
 
-# bat
-if type "bat" > /dev/null 2>&1; then
-    alias cat="bat"
-fi
 
 # fzf
 if type fzf &> /dev/null; then
