@@ -11,7 +11,7 @@ fi
 
 # eza
 if type "eza" > /dev/null 2>&1; then
-	alias ls="eza --icons -F --"
+	alias ls="eza --icons --classify"
 fi
 
 # screen
