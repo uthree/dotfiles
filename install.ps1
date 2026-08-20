@@ -33,6 +33,7 @@ if (-not $DotPath) { $DotPath = Split-Path -Parent $MyInvocation.MyCommand.Path 
 if (-not $DotPath) { throw 'could not determine the repository path; pass -DotPath' }
 $script:Copied = @()
 $script:Failed = @()
+$script:Fallback = @()
 
 function Write-Step {
     param([string]$Message, [string]$Color = 'Gray')
@@ -119,6 +120,7 @@ function New-DotLink {
         } else {
             New-Item -ItemType HardLink -Path $Destination -Target $resolved -ErrorAction Stop | Out-Null
             Write-Step '    hardlink' 'Green'
+            $script:Fallback += $Destination
         }
         return
     } catch {}
@@ -214,6 +216,13 @@ Write-Host ''
 if ($script:Copied.Count -gt 0) {
     Write-Step 'copied instead of linked, so these will not follow the repository:' 'Yellow'
     $script:Copied | ForEach-Object { Write-Step "  $_" 'Yellow' }
+    Write-Step 'enable Developer Mode (Settings > System > For developers) and re-run for real symlinks.' 'Yellow'
+}
+if ($script:Fallback.Count -gt 0) {
+    Write-Step 'hard-linked instead of symlinked (Developer Mode is off):' 'Yellow'
+    $script:Fallback | ForEach-Object { Write-Step "  $_" 'Yellow' }
+    Write-Step 'an editor that saves by replacing the file (rather than writing in place)' 'Yellow'
+    Write-Step 'breaks a hard link silently, and the file stops following the repository.' 'Yellow'
     Write-Step 'enable Developer Mode (Settings > System > For developers) and re-run for real symlinks.' 'Yellow'
 }
 if ($script:Failed.Count -gt 0) {

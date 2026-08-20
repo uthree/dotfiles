@@ -70,6 +70,18 @@ foreach ($entry in $packages.GetEnumerator()) {
 
 # PowerShell modules used by the profile
 Write-Host 'installing PowerShell modules...' -ForegroundColor Magenta
+
+# Windows PowerShell 5.1 asks for the NuGet provider on the first Install-Module,
+# which a non-interactive run cannot answer.
+if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+    if (-not $DryRun) {
+        try {
+            Install-PackageProvider -Name NuGet -Scope CurrentUser -Force -ErrorAction Stop | Out-Null
+        } catch {
+            Write-Host "  NuGet provider: $($_.Exception.Message)" -ForegroundColor Yellow
+        }
+    }
+}
 $modules = @(
     @{ Name = 'PSReadLine'; Reason = 'autosuggestions (PSReadLine 2.1+)' },
     @{ Name = 'PSFzf'; Reason = 'Ctrl+T / Ctrl+R fzf key bindings' }
