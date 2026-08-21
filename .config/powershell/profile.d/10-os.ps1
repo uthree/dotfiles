@@ -1,5 +1,9 @@
 # Per-environment branches, mirroring ~/.zshrc.d/os.zsh .
 
+# interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
+# see Test-DotfilesInteractiveSession in ../profile.ps1
+if ($global:DotfilesInteractive -eq $false) { return }
+
 # $IsWindows only exists on PowerShell 6+; on Windows PowerShell 5.1 the host is
 # always Windows.
 $DotfilesOnWindows = ($PSVersionTable.PSVersion.Major -lt 6) -or $IsWindows

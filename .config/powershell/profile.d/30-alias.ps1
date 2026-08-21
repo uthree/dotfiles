@@ -1,5 +1,9 @@
 # Aliases, mirroring ~/.zshrc.d/alias.zsh .
 
+# interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
+# see Test-DotfilesInteractiveSession in ../profile.ps1
+if ($global:DotfilesInteractive -eq $false) { return }
+
 # vim/helix muscle memory
 function Invoke-ExitShell { exit }
 Set-DotAlias -Name ':q' -Value 'Invoke-ExitShell'

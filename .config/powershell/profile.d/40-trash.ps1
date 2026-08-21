@@ -1,6 +1,10 @@
 # `rm` moves to ~/.Trash instead of deleting, mirroring ~/.zshrc.d/trash.zsh .
 # Use `Remove-Item` (or `command rm`) when you really mean delete.
 
+# interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
+# see Test-DotfilesInteractiveSession in ../profile.ps1
+if ($global:DotfilesInteractive -eq $false) { return }
+
 $TRASH_DIR = Join-Path $HOME '.Trash'
 if (-not (Test-Path -LiteralPath $TRASH_DIR)) {
     New-Item -ItemType Directory -Path $TRASH_DIR -Force | Out-Null

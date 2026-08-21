@@ -2,6 +2,10 @@
 # zsh side keeps working. Only commands that are missing (or that behave
 # differently enough to be surprising) are defined here.
 
+# interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
+# see Test-DotfilesInteractiveSession in ../profile.ps1
+if ($global:DotfilesInteractive -eq $false) { return }
+
 # `which git` -> path of the executable, like the Unix tool
 function which {
     param([Parameter(ValueFromRemainingArguments = $true)][string[]]$Name)

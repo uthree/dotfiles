@@ -10,9 +10,37 @@ if (-not $dotfilesPowerShellRoot) {
 }
 $dotfilesProfileD = Join-Path $dotfilesPowerShellRoot 'profile.d'
 
+# zsh only reads ~/.zshrc for interactive shells; PowerShell has no such rule and
+# runs $PROFILE for `-Command` / `-File` runs as well. Coding agents, scripts and
+# CI go through exactly that path, and would silently get `rm` as "move to
+# trash", `ls` as eza text instead of objects, and `cd` as zoxide.
+# So decide here, and let profile.d/10-* .. 80-* opt out.
+function Test-DotfilesInteractiveSession {
+    # agents / CI announce themselves
+    if ($env:CLAUDECODE -or $env:AI_AGENT -or $env:CI) { return $false }
+
+    # -Command / -File / -EncodedCommand / -NonInteractive all mean
+    # "run this and exit", not "give the user a prompt".
+    # PowerShell accepts any unambiguous prefix, so compare by prefix.
+    $scripted = @('command', 'file', 'encodedcommand', 'noninteractive')
+    foreach ($a in [Environment]::GetCommandLineArgs()) {
+        if ($a -notmatch '^-') { continue }
+        $name = $a.TrimStart('-').ToLowerInvariant()
+        if (-not $name) { continue }
+        foreach ($s in $scripted) {
+            if ($s.StartsWith($name)) { return $false }
+        }
+    }
+
+    if (-not [Environment]::UserInteractive) { return $false }
+    return $true
+}
+
+$global:DotfilesInteractive = Test-DotfilesInteractiveSession
+
 # `$DOTFILES_QUIET = $true` in ~/.specific.ps1 is too late to matter, so the
 # environment variable is what silences the banner.
-$dotfilesQuiet = ($env:DOTFILES_QUIET -eq '1')
+$dotfilesQuiet = ($env:DOTFILES_QUIET -eq '1') -or (-not $global:DotfilesInteractive)
 
 if (-not $dotfilesQuiet) { Write-Host 'Loading ~/.config/powershell/profile.d ...' -ForegroundColor Magenta }
 

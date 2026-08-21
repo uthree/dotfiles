@@ -2,6 +2,10 @@
 # Ctrl+T (files) and Ctrl+R (history) need the PSFzf module:
 #   Install-Module PSFzf -Scope CurrentUser
 
+# interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
+# see Test-DotfilesInteractiveSession in ../profile.ps1
+if ($global:DotfilesInteractive -eq $false) { return }
+
 if (Test-Command 'fzf') {
     if (Test-Command 'bat') {
         $fzfPreview = '--preview "bat --color=always --style=header,grid --line-range :100 {}"'

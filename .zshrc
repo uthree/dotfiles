@@ -1,3 +1,12 @@
+# Coding agents (claude code and friends) run their commands through this shell,
+# and the aliases below would change what those commands mean: `rm` moves to
+# ~/.Trash instead of deleting, `ls` becomes eza, `cd` becomes zoxide.
+# Claude Code already runs `unalias -a` over its shell snapshot, but other agents
+# use `zsh -ic`, so bail out explicitly.
+if [[ -n "$CLAUDECODE" || -n "$AI_AGENT" || -n "$CI" ]]; then
+	return
+fi
+
 # load all files
 #echo
 echo "\e[35;1mLoading ~/.zshrc.d ...\e[0m"

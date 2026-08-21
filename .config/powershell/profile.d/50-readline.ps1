@@ -1,6 +1,10 @@
 # PSReadLine tuned to behave like the zsh setup in ~/.zshrc.d/zinit.zsh :
 # emacs keys, substring history search, autosuggestions and a completion menu.
 
+# interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
+# see Test-DotfilesInteractiveSession in ../profile.ps1
+if ($global:DotfilesInteractive -eq $false) { return }
+
 if (-not (Get-Module -Name PSReadLine)) {
     Import-Module PSReadLine -ErrorAction SilentlyContinue
 }

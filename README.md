@@ -98,6 +98,27 @@ counterpart of `~/.specific.zsh`).
 Each block only turns itself on when the tool it wraps is installed, so a
 partially installed machine still gets a working shell.
 
+### interactive shells only
+
+zsh reads `.zshrc` only for interactive shells, but PowerShell runs `$PROFILE`
+for `-Command` / `-File` runs as well — which is exactly how coding agents,
+scripts and CI invoke it. Left alone, they would get `rm` as "move to `~/.Trash`",
+`ls` as eza text instead of objects (so `ls | Measure-Object` counts 0), `mkdir`
+returning nothing, `cd` as zoxide, plus the loading banner on stdout.
+
+So `profile.ps1` decides once whether the session is interactive
+(`Test-DotfilesInteractiveSession`) and `profile.d/10-*` .. `80-*` bail out when
+it is not — the equivalent of `[[ -o interactive ]] || return`. A session counts
+as non-interactive when `CLAUDECODE`, `AI_AGENT` or `CI` is set, when the command
+line has `-Command` / `-File` / `-EncodedCommand` / `-NonInteractive`, or when
+the process is not user-interactive. `00-options.ps1` (PATH, UTF-8, XDG,
+`$EDITOR`) still loads, since it changes no command's meaning.
+
+The zsh side has the same guards: `.zshrc` returns early for `CLAUDECODE` /
+`AI_AGENT` / `CI` (Claude Code already runs `unalias -a` over its shell snapshot,
+but other agents use `zsh -ic`), and `.zprofile` only initialises zoxide for
+interactive shells, so `zsh -lc 'cd ...'` keeps the real `cd`.
+
 Notes:
 - `rm` moves to `~/.Trash`. Use `Remove-Item` or `command rm` to really delete.
 - inline autosuggestions need PSReadLine 2.1+ (`Install-Module PSReadLine`);
