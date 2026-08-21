@@ -2,3 +2,8 @@
 desktop.ini
 *.swp
 *.swo
+# The global ignore file this repository installs (.config/git/ignore) drops
+# .claude entirely. This repository tracks exactly one file inside it.
+!.claude/
+.claude/*
+!.claude/CLAUDE.md

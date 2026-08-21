@@ -145,6 +145,8 @@ $links = [ordered]@{
     # these read ~/.config on Windows as well
     '.config/starship.toml'     = @((Join-Path $configDir 'starship.toml'))
     '.config/git/ignore'        = @((Join-Path $configDir 'git\ignore'))
+    # global instructions for claude code
+    '.claude/CLAUDE.md'         = @((Join-Path $HOME '.claude\CLAUDE.md'))
     '.config/powershell'        = @((Join-Path $configDir 'powershell'))
     # vim on Windows prefers _vimrc but still reads .vimrc
     '.vimrc'                    = @((Join-Path $HOME '.vimrc'), (Join-Path $HOME '_vimrc'))

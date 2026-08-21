@@ -12,6 +12,7 @@ entries="\
 	.config/zed/settings.json \
 	.config/zed/keymap.json \
 	.config/git/ignore \
+	.claude/CLAUDE.md \
 	.vimrc \
 "
 

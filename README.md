@@ -23,6 +23,7 @@ configuration files and install script
     - run `clear-trash` to delete old trash files.
     - run `clear-trash-all` to delete all trash files.
 - command aliases
+- global instructions for [Claude Code](https://claude.com/claude-code) (`~/.claude/CLAUDE.md`)
 
 ## Requirements
 - zsh (Linux / macOS)
@@ -63,6 +64,7 @@ actually read:
 | `.config/powershell` | `~/.config/powershell` + a stub in `$PROFILE` (5.1 and 7) |
 | `.config/starship.toml` | `~/.config/starship.toml` |
 | `.config/git/ignore` | `~/.config/git/ignore` |
+| `.claude/CLAUDE.md` | `~/.claude/CLAUDE.md` |
 | `.vimrc` | `~/.vimrc` and `~/_vimrc` |
 | `.config/helix` | `~/.config/helix` + `%APPDATA%\helix` |
 | `.config/alacritty` | `~/.config/alacritty` + `%APPDATA%\alacritty` |
