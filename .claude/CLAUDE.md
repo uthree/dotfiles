@@ -10,3 +10,7 @@
 ## Python
 
 - As a rule, use a `uv` virtual environment when working with Python.
+
+## Git/GitHub
+
+- If the branch you are working on is not `main` or `master`, please commit and push your changes for each unit of work, unless otherwise instructed.
