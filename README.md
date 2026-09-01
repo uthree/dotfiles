@@ -29,12 +29,17 @@ configuration files and install script
 ## Installation
 
 ### Linux / macOS
-- run `auto_install.sh`
+```sh
+curl -fsSL https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.sh | sh
+```
 
 ### Windows
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\auto_install.ps1
+irm https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.ps1 | iex
 ```
+
+Both clone this repository into `~/.dotfiles` and link everything into place.
+Running them again updates the clone and re-links.
 
 See [doc/windows.md](doc/windows.md) for the other entry points and for what
 gets linked where.

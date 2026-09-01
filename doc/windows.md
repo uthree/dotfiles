@@ -4,9 +4,12 @@
 
 ```powershell
 # clone into ~/.dotfiles and link everything
+irm https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.ps1 | iex
+
+# same thing from a clone you already have
 powershell -ExecutionPolicy Bypass -File .\auto_install.ps1
 
-# or, from a clone you already have
+# link only, from a clone you already have
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 .\install.bat            # same thing, for double-clicking
 

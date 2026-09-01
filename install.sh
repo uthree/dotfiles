@@ -1,5 +1,5 @@
-#!/bin/bash
-DOTPATH=~/.dotfiles
+#!/bin/sh
+DOTPATH="${DOTPATH:-$HOME/.dotfiles}"
 
 entries="\
 	.zshrc \
@@ -20,9 +20,9 @@ entries="\
 echo "generating symlinks..."
 for f in $entries; do
 	echo "	$f"
-	parent_dir=$(dirname $HOME/$f)
-	if [[ ! -e $parent_dir ]]; then
-		mkdir -p $parent_dir
+	parent_dir=$(dirname "$HOME/$f")
+	if [ ! -e "$parent_dir" ]; then
+		mkdir -p "$parent_dir"
 	fi
-	ln -snfv "$DOTPATH/$f" "$HOME"/"$f"
+	ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
