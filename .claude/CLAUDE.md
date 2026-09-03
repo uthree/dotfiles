@@ -10,10 +10,12 @@
 ## Python
 
 - As a rule, use a `uv` virtual environment when working with Python.
+- Write tests using `pytest` and check code quality using `ruff` before commiting.
 
 ## Rust
 
 - If you find yourself needing to debug the macro itself, please consider alternatives to using a macro.
+- Verify the code quality using `cargo test` and `cargo clippy` before committing.
 
 ## Git/GitHub
 
