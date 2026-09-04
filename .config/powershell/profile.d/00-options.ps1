@@ -57,6 +57,12 @@ foreach ($dir in (Join-Path $HOME '.local\bin'), (Join-Path $HOME '.cargo\bin'))
     }
 }
 
+# Let Cargo use the compiler cache when it is installed, while preserving an
+# explicitly selected wrapper (for example, rust-analyzer's wrapper).
+if (-not $env:RUSTC_WRAPPER -and (Test-Command 'sccache')) {
+    $env:RUSTC_WRAPPER = 'sccache'
+}
+
 # --- editor / pager ----------------------------------------------------------
 foreach ($editor in 'hx', 'nvim', 'vim') {
     if (Test-Command $editor) {

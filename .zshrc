@@ -3,6 +3,10 @@
 # ~/.Trash instead of deleting, `ls` becomes eza, `cd` becomes zoxide.
 # Claude Code already runs `unalias -a` over its shell snapshot, but other agents
 # use `zsh -ic`, so bail out explicitly.
+if [[ -z "${RUSTC_WRAPPER:-}" ]] && command -v sccache > /dev/null 2>&1; then
+	export RUSTC_WRAPPER=sccache
+fi
+
 if [[ -n "$CLAUDECODE" || -n "$AI_AGENT" || -n "$CI" ]]; then
 	return
 fi

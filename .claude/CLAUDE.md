@@ -16,3 +16,6 @@
 
 - If you find yourself needing to debug the macro itself, please consider alternatives to using a macro.
 - Verify the code quality using `cargo test` and `cargo clippy` before committing.
+- Before running Cargo, set `RUSTC_WRAPPER=sccache` in the command environment
+  when `sccache` is available and `RUSTC_WRAPPER` is unset. Do not rely on an
+  interactive shell profile to set it.
