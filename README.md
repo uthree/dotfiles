@@ -20,7 +20,7 @@ configuration files and install script
 
 - Trash: `rm` moves to `~/.Trash/` instead of deleting
 - command aliases
-- global instructions for [Claude Code](https://claude.com/claude-code) (`~/.claude/CLAUDE.md`)
+- instructions for [Claude Code](https://claude.com/claude-code) and agents that support `AGENTS.md`
 
 ## Requirements
 - zsh (Linux / macOS)

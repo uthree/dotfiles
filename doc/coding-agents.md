@@ -1,5 +1,13 @@
 # Coding agents and scripts
 
+## Shared instructions
+
+The repository keeps identical coding instructions in both
+`.claude/CLAUDE.md` and the root `AGENTS.md`. The former is linked to
+`~/.claude/CLAUDE.md` by the installers for Claude Code. Agents that support
+the `AGENTS.md` convention, including Codex, read the repository-root file
+after cloning this dotfiles repository.
+
 zsh reads `.zshrc` only for interactive shells, but PowerShell runs `$PROFILE`
 for `-Command` / `-File` runs as well — which is exactly how coding agents,
 scripts and CI invoke it.
