@@ -16,7 +16,3 @@
 
 - If you find yourself needing to debug the macro itself, please consider alternatives to using a macro.
 - Verify the code quality using `cargo test` and `cargo clippy` before committing.
-
-## Git/GitHub
-
-- If the branch you are working on is not `main` or `master`, please commit and push your changes for each unit of work, unless otherwise instructed.
