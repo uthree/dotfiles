@@ -16,4 +16,3 @@
 
 - If you find yourself needing to debug the macro itself, please consider alternatives to using a macro.
 - Verify the code quality using `cargo test` and `cargo clippy` before committing.
-- Use `sccache` for builds.
