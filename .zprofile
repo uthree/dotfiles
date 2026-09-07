@@ -2,8 +2,9 @@
 # coding agents and scripts spawn (`zsh -lc ...`). zoxide replaces `cd` with a
 # function, so a scripted `cd /missing/path` would silently land somewhere else
 # instead of failing. Keep it to interactive shells.
-if [[ -z "${RUSTC_WRAPPER:-}" ]] && command -v sccache > /dev/null 2>&1; then
-	export RUSTC_WRAPPER=sccache
+if command -v sccache > /dev/null 2>&1; then
+	[[ -n "${RUSTC_WRAPPER:-}" ]] || export RUSTC_WRAPPER=sccache
+	[[ -n "${SCCACHE_CACHE_SIZE:-}" ]] || export SCCACHE_CACHE_SIZE=30G
 fi
 
 [[ -o interactive ]] || return

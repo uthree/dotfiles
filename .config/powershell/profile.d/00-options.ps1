@@ -57,10 +57,11 @@ foreach ($dir in (Join-Path $HOME '.local\bin'), (Join-Path $HOME '.cargo\bin'))
     }
 }
 
-# Let Cargo use the compiler cache when it is installed, while preserving an
-# explicitly selected wrapper (for example, rust-analyzer's wrapper).
-if (-not $env:RUSTC_WRAPPER -and (Test-Command 'sccache')) {
-    $env:RUSTC_WRAPPER = 'sccache'
+# Let Cargo use the compiler cache when it is installed, while preserving any
+# explicit per-machine overrides.
+if (Test-Command 'sccache') {
+    if (-not $env:RUSTC_WRAPPER) { $env:RUSTC_WRAPPER = 'sccache' }
+    if (-not $env:SCCACHE_CACHE_SIZE) { $env:SCCACHE_CACHE_SIZE = '30G' }
 }
 
 # --- editor / pager ----------------------------------------------------------
