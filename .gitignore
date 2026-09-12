@@ -7,3 +7,7 @@ desktop.ini
 !.claude/
 .claude/*
 !.claude/CLAUDE.md
+# Track only the shared Codex configuration.
+!.codex/
+.codex/*
+!.codex/config.toml

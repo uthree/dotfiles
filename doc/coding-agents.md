@@ -1,5 +1,13 @@
 # Coding agents and scripts
 
+## Codex configuration
+
+The installers link `.codex/config.toml` to `~/.codex/config.toml`.
+It sets the default subagent model to `gpt-5.6-luna` and reasoning effort to
+`medium`, independently of the parent model. Explicit spawn overrides take
+precedence. The installers replace the destination configuration rather than
+merging it; preserve any machine-specific settings before installing.
+
 ## Shared instructions
 
 The repository keeps identical coding instructions in both
