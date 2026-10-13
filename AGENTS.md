@@ -16,6 +16,8 @@
 
 - If you find yourself needing to debug the macro itself, please consider alternatives to using a macro.
 - Verify the code quality using `cargo test` and `cargo clippy` before committing.
+- When compiling Rust from Codex, run outside the sandbox and set
+  `CARGO_INCREMENTAL=0` in the command environment.
 - Before running Cargo, when `sccache` is available, set
   `RUSTC_WRAPPER=sccache` and `SCCACHE_CACHE_SIZE=30G` in the command environment
   if they are unset. Do not rely on an interactive shell profile to set them.
