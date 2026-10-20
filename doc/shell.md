@@ -41,3 +41,19 @@ that already exists there gets a numbered suffix rather than overwriting.
 ## Miscellaneous
 
 - `DOTFILES_QUIET=1` silences the loading banner.
+
+## Rust compiler cache on Windows
+
+When `sccache` is installed, the PowerShell profile defaults to
+`RUSTC_WRAPPER=sccache`, `SCCACHE_CACHE_SIZE=30G`, and `CARGO_INCREMENTAL=0`.
+Existing environment overrides are preserved. Incremental compilation must be
+disabled for sccache to cache Rust compilations.
+
+These defaults require loading the profile. For shells started with `-NoProfile`,
+set the variables explicitly before running Cargo. In Codex, follow the Cargo
+execution instructions in `AGENTS.md`.
+
+Run `sccache --show-stats` in the same execution environment as the build to see
+cache hits. Cargo can reuse its own existing build outputs without calling
+sccache, so an unchanged build may leave the counters unchanged. Final binaries
+and procedural macro crates that invoke the linker are not cacheable.
