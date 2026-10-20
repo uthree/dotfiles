@@ -1,0 +1,4 @@
+sandbox_mode = "danger-full-access"
+
+[agents]
+default_subagent_reasoning_effort = "medium"

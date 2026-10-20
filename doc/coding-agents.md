@@ -2,11 +2,14 @@
 
 ## Codex configuration
 
-The installers link `.codex/config.toml` to `~/.codex/config.toml`.
-It sets the default subagent model to `gpt-6-luna` and reasoning effort to
-`medium`, independently of the parent model. Explicit spawn overrides take
-precedence. The installers replace the destination configuration rather than
-merging it; preserve any machine-specific settings before installing.
+The Unix installer links `.codex/config.toml` to `~/.codex/config.toml`.
+The Windows installer links `.codex/config.windows.toml` to the same destination.
+Both set the default subagent reasoning effort to `medium`. Explicit spawn
+overrides take precedence. The Windows configuration also sets
+`sandbox_mode = "danger-full-access"` to disable the command sandbox. Neither
+configuration sets an approval policy. The installers replace the destination
+configuration rather than merging it; preserve any machine-specific settings
+before installing.
 
 ## Shared instructions
 
