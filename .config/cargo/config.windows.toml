@@ -1,0 +1,3 @@
+# Keep MSVC proc-macro DLLs stable across clean builds so their users can hit sccache.
+[target.'cfg(all(target_os = "windows", target_env = "msvc"))']
+rustflags = ["-C", "link-arg=/Brepro"]

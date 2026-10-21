@@ -57,3 +57,14 @@ Run `sccache --show-stats` in the same execution environment as the build to see
 cache hits. Cargo can reuse its own existing build outputs without calling
 sccache, so an unchanged build may leave the counters unchanged. Final binaries
 and procedural macro crates that invoke the linker are not cacheable.
+
+The Windows installer also links `.config/cargo/config.windows.toml` to
+`~/.cargo/config.toml`. It passes `/Brepro` to the linker for Windows MSVC
+targets, making link metadata deterministic. This lets crates that depend on
+procedural macro DLLs reuse their cache entries after clean builds when the
+remaining inputs and paths are unchanged.
+
+Explicit `RUSTFLAGS` or `CARGO_ENCODED_RUSTFLAGS` override these target flags.
+When using `--target` or `build.target`, Cargo does not pass target flags to host
+build scripts or procedural macros, so this setting does not make those host
+DLLs deterministic in that case.
