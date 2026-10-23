@@ -4,6 +4,9 @@
   and little else. Write detailed information in separate files (for example
   `doc/*.md`).
 - Write comments and documentation in English unless instructed otherwise.
+  However, the user is a Japanese speaker, so write documents intended only for
+  the user (such as implementation plans and reports on experiment results) in
+  Japanese unless instructed otherwise.
 - Features that were removed, or that were deliberately not implemented, do not
   need to be written in the documentation.
 
