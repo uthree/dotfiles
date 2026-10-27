@@ -9,6 +9,11 @@
   Japanese unless instructed otherwise.
 - Features that were removed, or that were deliberately not implemented, do not
   need to be written in the documentation.
+- If you find an available update for an installed, user-level development tool
+  such as Blaze, mold, or sccache, verify it with the official release notes or
+  package manager and suggest updating it to the user. Exclude project-managed
+  runtimes, tools, and dependencies whose versions vary by project, such as
+  Python interpreters, virtual environments, and packages.
 
 ## Python
 
