@@ -11,7 +11,8 @@ fi
 
 # eza
 if type "eza" > /dev/null 2>&1; then
-	alias ls="eza --icons --classify"
+	# Explicit values keep optional option arguments from consuming paths.
+	alias ls="eza --icons=always --classify=always"
 fi
 
 # screen

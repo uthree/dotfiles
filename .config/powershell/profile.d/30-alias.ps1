@@ -41,10 +41,11 @@ Set-DotAlias -Name '$' -Value 'command'
 
 # eza
 if (Test-Command 'eza') {
-    function Invoke-Eza { & eza --icons --classify @args }
-    function Invoke-EzaLong { & eza --icons --classify --long --git @args }
-    function Invoke-EzaAll { & eza --icons --classify --long --git --all @args }
-    function Invoke-EzaTree { & eza --icons --tree --level=2 @args }
+    # Explicit values keep optional option arguments from consuming paths.
+    function Invoke-Eza { & eza --icons=always --classify=always @args }
+    function Invoke-EzaLong { & eza --icons=always --classify=always --long --git @args }
+    function Invoke-EzaAll { & eza --icons=always --classify=always --long --git --all @args }
+    function Invoke-EzaTree { & eza --icons=always --tree --level=2 @args }
     Set-DotAlias -Name ls -Value 'Invoke-Eza'
     Set-DotAlias -Name ll -Value 'Invoke-EzaLong'
     Set-DotAlias -Name la -Value 'Invoke-EzaAll'
