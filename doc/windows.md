@@ -17,6 +17,13 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun
 ```
 
+`auto_install.ps1` updates `~/.dotfiles` to the latest commit on GitHub
+before linking: it fetches, stashes anything changed in that clone (reporting
+it, with the `git stash pop` that brings it back) and moves the clone to the
+remote default branch. A failing git stops the run, so a stale clone is never
+linked. Treat `~/.dotfiles` as a deployment copy and work in a clone of your
+own.
+
 Then install the tools the configuration wraps (winget). Already installed tools
 are skipped:
 

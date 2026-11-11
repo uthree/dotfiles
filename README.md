@@ -39,7 +39,8 @@ irm https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.ps1 | ie
 ```
 
 Both clone this repository into `~/.dotfiles` and link everything into place.
-Running them again updates the clone and re-links.
+Running them again moves that clone to the latest commit on GitHub, stashing
+anything changed there first, and re-links.
 
 See [doc/windows.md](doc/windows.md) for the other entry points and for what
 gets linked where.
