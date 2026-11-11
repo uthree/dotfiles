@@ -21,6 +21,10 @@
   on the topic so the same ground is not covered twice.
 - Write entries in Japanese, one entry per topic (one question, or one change),
   never one per session.
+- Write the Japanese in an entry through the `yomiyasu` skill where it is
+  available: draft the text, then let the skill refine it, so a record reads
+  naturally instead of reading like machine output. Treat this as the skill
+  being asked for by name.
 - Record what failed as well as what worked. Approaches that did not work, and
   why, are the most valuable part of a record: they are left in neither the code
   nor the git history.
