@@ -18,7 +18,9 @@
   without waiting for the user's approval. If the miloa MCP server is not
   connected in the current environment, skip this and carry on.
 - Before starting a non-trivial investigation, search miloa for earlier records
-  on the topic so the same ground is not covered twice.
+  on the topic so the same ground is not covered twice. Search miloa as well
+  whenever you search the web for existing literature or prior art: an earlier
+  record names the sources already read and what they turned out to be worth.
 - Write entries in Japanese, one entry per topic (one question, or one change),
   never one per session.
 - Write the Japanese in an entry through the `yomiyasu` skill where it is
@@ -28,14 +30,25 @@
 - Record what failed as well as what worked. Approaches that did not work, and
   why, are the most valuable part of a record: they are left in neither the code
   nor the git history.
-- Tag entries `作業記録`. Required fields are `日付`, `種別` (調査 / 実験 / 変更 /
-  環境構築, each carrying its own fields) and `記録者` (which agent wrote the
-  entry, with the model name and version, for example `Claude Code` + `Opus 5`).
-  Set `リポジトリ` to the matching `リポジトリ` entry, creating that entry when
-  it does not exist yet, and set `状態` to 完了 / 未解決 / 保留.
+- Tag entries `作業記録`. Required fields are `見出し` (what the entry is about),
+  `日付`, `リポジトリ` (the matching `リポジトリ` entry, created when it does not
+  exist yet), `種別` (調査 / 実験 / 変更 / 環境構築, each carrying its own
+  fields) and `記録者` (which agent wrote the entry, with the model name and
+  version, for example `Claude Code` + `Opus 5`). Set `状態` to 完了 / 未解決 /
+  保留.
+- Do not write a title for a `作業記録` entry: the tag derives it. Put 何をしたか
+  in `見出し`, and the `[リポジトリ名]` in front comes from `リポジトリ` through
+  the title derive.
 - Entry bodies cannot be searched through MCP; only titles, tags, and fields can.
-  Title an entry so that it can be found later (`[リポジトリ] 何をしたか`), and
-  put the words worth searching for into `キーワード`.
+  Word `見出し` so that the entry can be found later, and put the words worth
+  searching for into `キーワード`.
+- Reach for a title derive in any tag you design yourself, the way `作業記録`
+  does. Whatever a title would repeat from a field — a prefix such as
+  `[auris-studio]`, a marker, a date, the name of a referenced entry — belongs
+  in the derive rather than being typed into every title. Two things to know: a
+  derive replaces the title completely, so the hand-written part needs a field
+  of its own; and an empty reference still leaves the text around it behind
+  (`[] …`), so make the fields a derive reads required.
 - Structure the body as 背景 / 分かったこと / 試して駄目だったこと / 次にやるなら.
 - Do not record what the code or `git log` already says, or work that a single
   command settled.
