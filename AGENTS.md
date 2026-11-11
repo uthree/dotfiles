@@ -11,6 +11,31 @@
   runtimes, tools, and dependencies whose versions vary by project, such as
   Python interpreters, virtual environments, and packages.
 
+## Work records (miloa)
+
+- Keep a record in miloa (through its MCP tools) of investigations, changes, and
+  experiments. Decide for yourself when a record is worth writing, and write it
+  without waiting for the user's approval. If the miloa MCP server is not
+  connected in the current environment, skip this and carry on.
+- Before starting a non-trivial investigation, search miloa for earlier records
+  on the topic so the same ground is not covered twice.
+- Write entries in Japanese, one entry per topic (one question, or one change),
+  never one per session.
+- Record what failed as well as what worked. Approaches that did not work, and
+  why, are the most valuable part of a record: they are left in neither the code
+  nor the git history.
+- Tag entries `作業記録`. Required fields are `日付`, `種別` (調査 / 実験 / 変更 /
+  環境構築, each carrying its own fields) and `記録者` (which agent wrote the
+  entry, with the model name and version, for example `Claude Code` + `Opus 5`).
+  Set `リポジトリ` to the matching `リポジトリ` entry, creating that entry when
+  it does not exist yet, and set `状態` to 完了 / 未解決 / 保留.
+- Entry bodies cannot be searched through MCP; only titles, tags, and fields can.
+  Title an entry so that it can be found later (`[リポジトリ] 何をしたか`), and
+  put the words worth searching for into `キーワード`.
+- Structure the body as 背景 / 分かったこと / 試して駄目だったこと / 次にやるなら.
+- Do not record what the code or `git log` already says, or work that a single
+  command settled.
+
 ## Python
 
 - As a rule, use a `uv` virtual environment when working with Python.
