@@ -154,9 +154,6 @@ $links = [ordered]@{
     # helix and alacritty look in %APPDATA% on Windows
     '.config/helix'             = @((Join-Path $configDir 'helix'), (Join-Path $appData 'helix'))
     '.config/alacritty'         = @((Join-Path $configDir 'alacritty'), (Join-Path $appData 'alacritty'))
-    # zed looks in %APPDATA%\Zed on Windows
-    '.config/zed/settings.json' = @((Join-Path $configDir 'zed\settings.json'), (Join-Path $appData 'Zed\settings.json'))
-    '.config/zed/keymap.json'   = @((Join-Path $configDir 'zed\keymap.json'), (Join-Path $appData 'Zed\keymap.json'))
 }
 
 if ($IncludeZsh -or (Get-Command zsh -ErrorAction SilentlyContinue)) {

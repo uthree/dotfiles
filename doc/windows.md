@@ -39,10 +39,16 @@ actually read:
 | `.vimrc` | `~/.vimrc` and `~/_vimrc` |
 | `.config/helix` | `~/.config/helix` + `%APPDATA%\helix` |
 | `.config/alacritty` | `~/.config/alacritty` + `%APPDATA%\alacritty` |
-| `.config/zed/*.json` | `~/.config/zed` + `%APPDATA%\Zed` |
 | `.zshrc`, `.zprofile`, `.zshrc.d` | linked only when zsh exists (MSYS2), or with `-IncludeZsh` |
 
 `zellij` has no Windows build, so its config is not linked.
+
+`.config/zed/*.json` and the Codex configuration are not linked by either
+installer. Zed and the Codex app rewrite their own configuration files as they
+run, so a link to this repository is either broken by them or overwrites what
+they wrote. The Zed files kept here are a starting point to copy by hand on a
+new machine; the Codex settings are listed in
+[coding-agents.md](coding-agents.md).
 
 ## Symlinks, junctions and hard links
 

@@ -9,8 +9,6 @@ entries="\
 	.config/helix \
 	.config/starship.toml \
 	.config/zellij \
-	.config/zed/settings.json \
-	.config/zed/keymap.json \
 	.config/git/ignore \
 	.claude/CLAUDE.md \
 	.vimrc \
