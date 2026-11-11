@@ -36,19 +36,21 @@
   fields) and `記録者` (which agent wrote the entry, with the model name and
   version, for example `Claude Code` + `Opus 5`). Set `状態` to 完了 / 未解決 /
   保留.
-- Do not write a title for a `作業記録` entry: the tag derives it. Put 何をしたか
-  in `見出し`, and the `[リポジトリ名]` in front comes from `リポジトリ` through
-  the title derive.
+- Do not write a title for a `作業記録` entry: the tag derives it from `見出し`
+  alone. Put 何をしたか in `見出し`, and leave the repository name out of it:
+  `リポジトリ` already says which repository the work was in.
 - Entry bodies cannot be searched through MCP; only titles, tags, and fields can.
   Word `見出し` so that the entry can be found later, and put the words worth
   searching for into `キーワード`.
 - Reach for a title derive in any tag you design yourself, the way `作業記録`
-  does. Whatever a title would repeat from a field — a prefix such as
-  `[auris-studio]`, a marker, a date, the name of a referenced entry — belongs
-  in the derive rather than being typed into every title. Two things to know: a
-  derive replaces the title completely, so the hand-written part needs a field
-  of its own; and an empty reference still leaves the text around it behind
-  (`[] …`), so make the fields a derive reads required.
+  does, so that titles are not typed by hand. Keep what a field or a tag already
+  shows out of the derive, though: a prefix such as `[auris-studio]` takes up
+  the start of a title that a list view cuts short, and hides the part that
+  tells entries apart. Put something from a field in the derive only when the
+  title needs it to be told apart. Two things to know: a derive replaces the
+  title completely, so the hand-written part needs a field of its own; and an
+  empty reference still leaves the text around it behind (`[] …`), so make the
+  fields a derive reads required.
 - Structure the body as 背景 / 分かったこと / 試して駄目だったこと / 次にやるなら.
 - Do not record what the code or `git log` already says, or work that a single
   command settled.
