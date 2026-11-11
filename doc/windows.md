@@ -32,6 +32,12 @@ powershell -ExecutionPolicy Bypass -File .\install_packages.ps1
 powershell -ExecutionPolicy Bypass -File .\install_packages.ps1 -IncludeOptional  # pwsh 7, alacritty, gsudo, nerd font
 ```
 
+That run also asks uv for a default Python (`uv python install --default`),
+which puts `python` and `python3` shims in uv's bin directory. Without them
+`python3` resolves to the Microsoft Store stub, and anything that shells out to
+it fails. When uv is installed in the same run it may not be on PATH yet; the
+script says so, and the command can be run again in a new shell.
+
 ## What gets linked where
 
 `install.ps1` links this repository into the places Windows applications

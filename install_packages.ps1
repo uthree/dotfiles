@@ -10,6 +10,9 @@
     Already installed tools are skipped. Nothing here is required; run it with
     -DryRun first if you want to see the list.
 
+    It also asks uv for a default Python, so that tools which shell out to
+    python3 find a real interpreter rather than the Microsoft Store stub.
+
 .EXAMPLE
     powershell -ExecutionPolicy Bypass -File .\install_packages.ps1 -DryRun
     powershell -ExecutionPolicy Bypass -File .\install_packages.ps1
@@ -29,6 +32,8 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 # command name -> winget package id
 $packages = [ordered]@{
     'git'      = 'Git.Git'
+    # python package manager; the agent instructions assume uv for Python work
+    'uv'       = 'astral-sh.uv'
     'starship' = 'Starship.Starship'
     'eza'      = 'eza-community.eza'
     'zoxide'   = 'ajeetdsouza.zoxide'
@@ -66,6 +71,29 @@ foreach ($entry in $packages.GetEnumerator()) {
 
     winget install --id $id --exact --silent `
         --accept-package-agreements --accept-source-agreements
+}
+
+# A Python on PATH. Anything that shells out to python3 (the yomiyasu skill, for
+# one) finds only the Microsoft Store stub otherwise. uv holds the interpreter;
+# --default adds the bare python and python3 shims beside it, in a directory that
+# comes before WindowsApps on PATH. --default is experimental in uv and prints a
+# warning; the shims are what matters.
+$uvPath = (Get-Command uv -ErrorAction SilentlyContinue).Source
+if (-not $uvPath) {
+    # winget's shim directory, which this shell may not have on PATH yet
+    $candidate = Join-Path $env:LOCALAPPDATA 'Microsoft\WinGet\Links\uv.exe'
+    if (Test-Path $candidate) { $uvPath = $candidate }
+}
+if ($uvPath) {
+    Write-Host 'installing the default Python (uv)...' -ForegroundColor Magenta
+    if (-not $DryRun) {
+        & $uvPath python install --default
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "  uv python install failed with exit code $LASTEXITCODE" -ForegroundColor Yellow
+        }
+    }
+} else {
+    Write-Host 'uv is not on PATH yet. run "uv python install --default" in a new shell.' -ForegroundColor Yellow
 }
 
 # PowerShell modules used by the profile
