@@ -2,19 +2,27 @@
 
 ## Codex configuration
 
-The Unix installer links `.codex/config.toml` to `~/.codex/config.toml`.
-The Windows installer links `.codex/config.windows.toml` to the same destination.
-Both set the default subagent reasoning effort to `medium`. Explicit spawn
-overrides take precedence. The Windows configuration also sets
-`sandbox_mode = "danger-full-access"` to disable the command sandbox, with
-`approval_policy = "on-request"` and `approvals_reviewer = "auto_review"` to
-preserve automatic approval review. Select **Custom (config.toml)** in the
-desktop app's permissions menu to use these settings; **Approve for me** selects
-the workspace-write sandbox regardless of the configured sandbox default.
-The Unix configuration does not set an approval policy.
-The installers replace the destination
-configuration rather than merging it; preserve any machine-specific settings
-before installing.
+`~/.codex/config.toml` is managed by hand and is not installed from this
+repository. The Codex app rewrites that file as it runs, keeping the model,
+plugins, marketplaces, MCP servers, trusted projects and the computer-use
+allowlist in it, so a copy installed from here would overwrite all of that on
+every run of the installer.
+
+Settings worth applying by hand on a new machine:
+
+```toml
+sandbox_mode = "danger-full-access"   # Windows; disables the command sandbox
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+
+[agents]
+default_subagent_reasoning_effort = "medium"
+```
+
+Explicit spawn overrides take precedence over the subagent default. Select
+**Custom (config.toml)** in the desktop app's permissions menu to use these
+settings; **Approve for me** selects the workspace-write sandbox regardless of
+the configured sandbox default.
 
 ## Shared instructions
 

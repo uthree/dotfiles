@@ -1,6 +1,0 @@
-sandbox_mode = "danger-full-access"
-approval_policy = "on-request"
-approvals_reviewer = "auto_review"
-
-[agents]
-default_subagent_reasoning_effort = "medium"

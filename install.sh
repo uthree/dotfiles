@@ -13,7 +13,6 @@ entries="\
 	.config/zed/keymap.json \
 	.config/git/ignore \
 	.claude/CLAUDE.md \
-	.codex/config.toml \
 	.vimrc \
 "
 

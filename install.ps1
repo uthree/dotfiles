@@ -147,7 +147,6 @@ $links = [ordered]@{
     '.config/git/ignore'        = @((Join-Path $configDir 'git\ignore'))
     # global instructions for claude code
     '.claude/CLAUDE.md'         = @((Join-Path $HOME '.claude\CLAUDE.md'))
-    '.codex/config.windows.toml' = @((Join-Path $HOME '.codex\config.toml'))
     '.config/cargo/config.windows.toml' = @((Join-Path $HOME '.cargo\config.toml'))
     '.config/powershell'        = @((Join-Path $configDir 'powershell'))
     # vim on Windows prefers _vimrc but still reads .vimrc
