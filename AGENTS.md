@@ -88,3 +88,6 @@
 - Before running Cargo, when `sccache` is available, set
   `RUSTC_WRAPPER=sccache` and `SCCACHE_CACHE_SIZE=30G` in the command environment
   if they are unset. Do not rely on an interactive shell profile to set them.
+  On Windows, do not use sccache: since Cargo 1.100 it makes rustc's command
+  line exceed the Windows length limit (os error 206) until a sccache release
+  includes mozilla/sccache#3026.
