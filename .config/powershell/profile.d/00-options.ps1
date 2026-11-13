@@ -57,15 +57,6 @@ foreach ($dir in (Join-Path $HOME '.local\bin'), (Join-Path $HOME '.cargo\bin'))
     }
 }
 
-# Let Cargo use the compiler cache when it is installed, while preserving any
-# explicit per-machine overrides.
-if (Test-Command 'sccache') {
-    if (-not $env:RUSTC_WRAPPER) { $env:RUSTC_WRAPPER = 'sccache' }
-    if (-not $env:SCCACHE_CACHE_SIZE) { $env:SCCACHE_CACHE_SIZE = '30G' }
-    # sccache cannot cache rustc invocations with incremental compilation enabled.
-    if (-not (Test-Path Env:CARGO_INCREMENTAL)) { $env:CARGO_INCREMENTAL = '0' }
-}
-
 # --- editor / pager ----------------------------------------------------------
 foreach ($editor in 'hx', 'nvim', 'vim') {
     if (Test-Command $editor) {
