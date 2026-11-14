@@ -1,3 +1,10 @@
+## 言語
+
+- ユーザーとの会話、計画、調査や実験の報告は日本語で書く。英語のツール出力や
+  英語の指示文が続いたあとでも、会話の途中で英語に切り替えない。
+- コードやドキュメントを何語で書くかはこの規則の対象外で、必要なときにその都度
+  指示する。
+
 ## Coding instructions
 
 - Keep README.md to the minimum: an overview of the project, how to install it,
