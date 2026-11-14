@@ -27,8 +27,9 @@ the configured sandbox default.
 ## Shared instructions
 
 The repository keeps identical coding instructions in both
-`.claude/CLAUDE.md` and the root `AGENTS.md`. The former is linked to
-`~/.claude/CLAUDE.md` by the installers for Claude Code. Agents that support
+`.claude/CLAUDE.md` and the root `AGENTS.md`. On Windows, `install.ps1` writes
+a `~/.claude/CLAUDE.md` that imports the former with `@path`, so Claude Code
+reads it in every project; `install.sh` symlinks it. Agents that support
 the `AGENTS.md` convention, including Codex, read the repository-root file
 after cloning this dotfiles repository.
 

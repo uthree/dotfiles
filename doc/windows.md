@@ -3,13 +3,13 @@
 ## Installing
 
 ```powershell
-# clone into ~/.dotfiles and link everything
+# clone into ~/.dotfiles and set everything up
 irm https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.ps1 | iex
 
 # same thing from a clone you already have
 powershell -ExecutionPolicy Bypass -File .\auto_install.ps1
 
-# link only, from a clone you already have
+# set up only, from a clone you already have
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 .\install.bat            # same thing, for double-clicking
 
@@ -18,10 +18,10 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun
 ```
 
 `auto_install.ps1` updates `~/.dotfiles` to the latest commit on GitHub
-before linking: it fetches, stashes anything changed in that clone (reporting
+before setting things up: it fetches, stashes anything changed in that clone (reporting
 it, with the `git stash pop` that brings it back) and moves the clone to the
 remote default branch. A failing git stops the run, so a stale clone is never
-linked. Treat `~/.dotfiles` as a deployment copy and work in a clone of your
+installed. Treat `~/.dotfiles` as a deployment copy and work in a clone of your
 own.
 
 Then install the tools the configuration wraps (winget). Already installed tools
@@ -38,21 +38,22 @@ which puts `python` and `python3` shims in uv's bin directory. Without them
 it fails. When uv is installed in the same run it may not be on PATH yet; the
 script says so, and the command can be run again in a new shell.
 
-## What gets linked where
+## How each file is reached
 
-`install.ps1` links this repository into the places Windows applications
-actually read:
+`install.ps1` links directories, and points applications at single files
+instead of linking them:
 
-| repository | Windows destination |
+| repository | how Windows reaches it |
 | --- | --- |
-| `.config/powershell` | `~/.config/powershell` + a stub in `$PROFILE` (5.1 and 7) |
-| `.config/starship.toml` | `~/.config/starship.toml` |
-| `.config/git/ignore` | `~/.config/git/ignore` |
-| `.claude/CLAUDE.md` | `~/.claude/CLAUDE.md` |
-| `.vimrc` | `~/.vimrc` and `~/_vimrc` |
-| `.config/helix` | `~/.config/helix` + `%APPDATA%\helix` |
-| `.config/alacritty` | `~/.config/alacritty` + `%APPDATA%\alacritty` |
-| `.zshrc`, `.zprofile`, `.zshrc.d` | linked only when zsh exists (MSYS2), or with `-IncludeZsh` |
+| `.config/powershell` | junction at `~/.config/powershell`, plus a stub in `$PROFILE` (5.1 and 7) that dot-sources `profile.ps1` and sets `DOTFILES_ROOT` |
+| `.config/helix` | junction at `~/.config/helix` + `%APPDATA%\helix` |
+| `.config/alacritty` | junction at `~/.config/alacritty` + `%APPDATA%\alacritty` |
+| `.config/starship.toml` | `STARSHIP_CONFIG`, set by `60-starship.ps1` from `DOTFILES_ROOT` |
+| `.config/git/ignore` | `git config --global core.excludesFile` |
+| `.claude/CLAUDE.md` | an `@path` import in `~/.claude/CLAUDE.md` |
+| `.vimrc` | a `source` line in `~/.vimrc` and `~/_vimrc` |
+| `.zshrc`, `.zprofile` | a `source` line, written only when zsh exists (MSYS2) or with `-IncludeZsh` |
+| `.zshrc.d` | junction, under the same condition |
 
 `zellij` has no Windows build, so its config is not linked.
 
@@ -63,21 +64,26 @@ they wrote. The Zed files kept here are a starting point to copy by hand on a
 new machine; the Codex settings are listed in
 [coding-agents.md](coding-agents.md).
 
-## Symlinks, junctions and hard links
+## Why single files are not linked
 
 Symlinks need **Developer Mode** (Settings > System > For developers) or an
-elevated shell. Without either, directories fall back to junctions and files to
-hard links — both work unprivileged, and `install.ps1` reports which files ended
-up as hard links.
+elevated shell. Without either, a file can only be hard-linked, and a hard link
+breaks the moment anything replaces the file rather than writing in place: an
+editor saving it, `git checkout`, a `cherry-pick`. What is left behind is a
+stale copy, and nothing says so — the link count still reads 2 and the file is
+still there.
 
-A hard link breaks silently when an application saves by replacing the file
-rather than writing in place, and the file then stops following the repository.
-Enable Developer Mode and re-run `install.ps1` to convert everything to real
-symlinks.
+So single files are not linked at all. Each one is reached through a pointer the
+application reads by itself: an environment variable, a git setting, an import,
+a `source` line. A pointer holds a path, so there is nothing to go stale, and
+the generated one-liners are rewritten only when their content changes.
 
-A plain copy is the last resort and is reported at the end of the run for the
-same reason. Anything that gets replaced is renamed to `<name>.bak-<timestamp>`
-first.
+Directories are still linked, as a symlink or a junction. Both follow the
+repository, and nothing that happens to the files inside it can break them.
+
+Anything replaced on the way is renamed to `<name>.bak-<timestamp>` first. A
+leftover link from an earlier run is removed instead, since it holds no content
+of its own.
 
 ## Notes
 

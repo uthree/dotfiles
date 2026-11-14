@@ -38,14 +38,14 @@ curl -fsSL https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.s
 irm https://raw.githubusercontent.com/uthree/dotfiles/main/auto_install.ps1 | iex
 ```
 
-Both clone this repository into `~/.dotfiles` and link everything into place.
+Both clone this repository into `~/.dotfiles` and set everything up from there.
 Running them again moves that clone to the latest commit on GitHub, stashing
-anything changed there first, and re-links.
+anything changed there first.
 
-See [doc/windows.md](doc/windows.md) for the other entry points and for what
-gets linked where.
+See [doc/windows.md](doc/windows.md) for the other entry points and for how
+each file is reached.
 
 ## Documentation
-- [doc/windows.md](doc/windows.md): installing and linking on Windows
+- [doc/windows.md](doc/windows.md): installing on Windows, and how each file is reached
 - [doc/shell.md](doc/shell.md): what the shell configuration provides
 - [doc/coding-agents.md](doc/coding-agents.md): why the aliases are interactive only
