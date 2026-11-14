@@ -18,7 +18,7 @@ aliases, the same trash behaviour, the same prompt.
 | `10-os.ps1` | `os.zsh` |
 | `20-unix.ps1` | `which` `touch` `mkdir -p` `head` `tail` `grep` `ln -s` `open` `pbcopy` `export` ... |
 | `30-alias.ps1` | `alias.zsh` (`:q` `:e` `:o` `reload` `command` `ls` `background`, some git aliases) |
-| `40-trash.ps1` | `trash.zsh` (`rm` moves to `~/.Trash`, `clear-trash`, `clear-trash-all`) |
+| `40-trash.ps1` | `trash.zsh` (`rm` goes to the recycle bin, `clear-trash-all`) |
 | `50-readline.ps1` | `zinit.zsh` (emacs keys, history substring search, autosuggestions, completion menu) |
 | `60-starship.ps1` | `starship.zsh` |
 | `70-zoxide.ps1` | `.zprofile` |
@@ -31,12 +31,19 @@ onwards is skipped in non-interactive sessions, see
 
 ## Trash
 
-`rm` moves its arguments to `~/.Trash/` instead of deleting them, and a name
-that already exists there gets a numbered suffix rather than overwriting.
+`rm` puts its arguments somewhere they can be restored from, instead of
+deleting them.
 
-- `clear-trash` deletes trash entries older than 30 days
-- `clear-trash-all` empties the trash
-- to really delete something: `command rm` (zsh) or `Remove-Item` (PowerShell)
+On Windows that is the recycle bin, so Explorer restores a file to where it
+came from and Windows decides how long to keep it. `clear-trash-all` empties
+the bin.
+
+zsh has no shared trash to hand a path to, so it moves the arguments to
+`~/.Trash/` and gives a name that already exists there a numbered suffix rather
+than overwriting it. `clear-trash` deletes entries older than 30 days and
+`clear-trash-all` empties the directory.
+
+To really delete something: `command rm` (zsh) or `Remove-Item` (PowerShell).
 
 ## Miscellaneous
 

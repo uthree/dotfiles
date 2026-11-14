@@ -18,7 +18,7 @@ configuration files and install script
 - [fzf](https://github.com/junegunn/fzf): fuzzy finder
 - [fcp](https://github.com/Svetlitski/fcp): cp alternative
 
-- Trash: `rm` moves to `~/.Trash/` instead of deleting
+- Trash: `rm` goes to the recycle bin on Windows, and to `~/.Trash/` under zsh
 - command aliases
 - instructions for [Claude Code](https://claude.com/claude-code) and agents that support `AGENTS.md`
 

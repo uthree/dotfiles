@@ -1,14 +1,29 @@
-# `rm` moves to ~/.Trash instead of deleting, mirroring ~/.zshrc.d/trash.zsh .
-# Use `Remove-Item` (or `command rm`) when you really mean delete.
+# `rm` sends its arguments to the Windows recycle bin, so Explorer can restore
+# them. Use `Remove-Item` (or `command rm`) when you really mean delete.
+#
+# zsh keeps its own ~/.Trash (see ~/.zshrc.d/trash.zsh) because macOS and Linux
+# have no shared trash to hand a path to. Windows has one, with its own
+# retention, so there is nothing for this file to mirror.
 
 # interactive shells only, the zsh equivalent of `[[ -o interactive ]] || return`.
 # see Test-DotfilesInteractiveSession in ../profile.ps1
 if ($global:DotfilesInteractive -eq $false) { return }
 
-$TRASH_DIR = Join-Path $HOME '.Trash'
-if (-not (Test-Path -LiteralPath $TRASH_DIR)) {
-    New-Item -ItemType Directory -Path $TRASH_DIR -Force | Out-Null
-    Write-Host "Created $TRASH_DIR directory automatically." -ForegroundColor Magenta
+# 10-os.ps1 sets this; re-derive it in case this file is loaded on its own.
+if ($null -eq $DotfilesOnWindows) {
+    $DotfilesOnWindows = ($PSVersionTable.PSVersion.Major -lt 6) -or $IsWindows
+}
+# install.sh does not install this profile, so this only guards a hand-made
+# setup. Without a recycle bin, `rm` stays PowerShell's own Remove-Item alias.
+if (-not $DotfilesOnWindows) { return }
+
+# Microsoft.VisualBasic.FileIO is the shortest way to the recycle bin, and ships
+# with both Windows PowerShell 5.1 and PowerShell 7 on Windows.
+try {
+    Add-Type -AssemblyName Microsoft.VisualBasic -ErrorAction Stop
+} catch {
+    Write-Host 'Microsoft.VisualBasic is unavailable; rm stays Remove-Item.' -ForegroundColor Yellow
+    return
 }
 
 function Move-ItemToTrash {
@@ -28,14 +43,21 @@ function Move-ItemToTrash {
             continue
         }
         foreach ($item in $items) {
-            $dest = Join-Path $TRASH_DIR $item.Name
-            # same idea as `mv --backup=numbered`
-            if (Test-Path -LiteralPath $dest) {
-                $i = 1
-                while (Test-Path -LiteralPath "$dest.~$i~") { $i++ }
-                $dest = "$dest.~$i~"
+            $path = $item.FullName
+            try {
+                if ($item.PSIsContainer) {
+                    [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory(
+                        $path, 'OnlyErrorDialogs', 'SendToRecycleBin')
+                } else {
+                    [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile(
+                        $path, 'OnlyErrorDialogs', 'SendToRecycleBin')
+                }
+            } catch {
+                # A network share, a drive with the recycle bin switched off, or
+                # a path the shell API will not take. Deleting it anyway cannot
+                # be undone, so report it and leave the path alone.
+                Write-Error "rm: $path : cannot go to the recycle bin ($($_.Exception.Message)). use Remove-Item to delete it"
             }
-            Move-Item -LiteralPath $item.FullName -Destination $dest -Force
         }
     }
 }
@@ -43,16 +65,8 @@ Set-DotAlias -Name rm -Value 'Move-ItemToTrash'
 Set-DotAlias -Name del -Value 'Move-ItemToTrash'
 Set-DotAlias -Name erase -Value 'Move-ItemToTrash'
 
-function clear-trash {
-    if (-not (Test-Path -LiteralPath $TRASH_DIR)) { return }
-    $limit = (Get-Date).AddDays(-30)
-    Get-ChildItem -LiteralPath $TRASH_DIR -Force |
-        Where-Object { $_.LastWriteTime -lt $limit } |
-        ForEach-Object { Remove-Item -LiteralPath $_.FullName -Recurse -Force }
-}
-
+# Windows ages the recycle bin itself (Storage Sense), so there is no 30-day
+# sweep to mirror.
 function clear-trash-all {
-    if (-not (Test-Path -LiteralPath $TRASH_DIR)) { return }
-    Get-ChildItem -LiteralPath $TRASH_DIR -Force |
-        ForEach-Object { Remove-Item -LiteralPath $_.FullName -Recurse -Force }
+    Clear-RecycleBin -Force
 }

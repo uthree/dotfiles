@@ -36,7 +36,7 @@ zsh reads `.zshrc` only for interactive shells, but PowerShell runs `$PROFILE`
 for `-Command` / `-File` runs as well — which is exactly how coding agents,
 scripts and CI invoke it.
 
-Left alone they would get `rm` as "move to `~/.Trash`", `ls` as eza text instead
+Left alone they would get `rm` as "send to the recycle bin", `ls` as eza text instead
 of objects (so `ls | Measure-Object` counts 0), `mkdir` returning nothing, `cd`
 as zoxide (a missing path stops being an error), plus the loading banner on
 stdout.
